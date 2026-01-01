@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home -->
+  <url>
+    <loc>https://bridg.money/</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Products -->
+  <url><loc>https://bridg.money/bridg-pay</loc><priority>0.9</priority></url>
+  <url><loc>https://bridg.money/bridg-connect</loc><priority>0.9</priority></url>
+  <url><loc>https://bridg.money/bridg-collect</loc><priority>0.9</priority></url>
+
+  <!-- Use Cases -->
+  <url><loc>https://bridg.money/small-business</loc><priority>0.8</priority></url>
+  <url><loc>https://bridg.money/startup</loc><priority>0.8</priority></url>
+  <url><loc>https://bridg.money/sme</loc><priority>0.8</priority></url>
+  <url><loc>https://bridg.money/enterprise</loc><priority>0.8</priority></url>
+  <url><loc>https://bridg.money/retail-and-e-commerce</loc><priority>0.8</priority></url>
+  <url><loc>https://bridg.money/software-and-tech</loc><priority>0.8</priority></url>
+  <url><loc>https://bridg.money/manufacturers</loc><priority>0.8</priority></url>
+  <url><loc>https://bridg.money/real-estate</loc><priority>0.8</priority></url>
+  <url><loc>https://bridg.money/healthcare</loc><priority>0.8</priority></url>
+  <url><loc>https://bridg.money/hospitality</loc><priority>0.8</priority></url>
+  <url><loc>https://bridg.money/professional-services</loc><priority>0.8</priority></url>
+  <url><loc>https://bridg.money/consultant-and-freelancers</loc><priority>0.8</priority></url>
+
+  <!-- Company -->
+  <url><loc>https://bridg.money/about</loc><priority>1.0</priority></url>
+  <url><loc>https://bridg.money/contact</loc><priority>1.0</priority></url>
+  <url><loc>https://bridg.money/careers</loc><priority>1.0</priority></url>
+  <url><loc>https://bridg.money/mission</loc><priority>1.0</priority></url>
+  <url><loc>https://bridg.money/privacy-policy</loc><priority>1.0</priority></url>
+  <url><loc>https://bridg.money/terms</loc><priority>1.0</priority></url>
+  <url><loc>https://bridg.money/trust-and-security</loc><priority>1.0</priority></url>
+  <url><loc>https://bridg.money/corporate-policies</loc><priority>1.0</priority></url>
+  <url><loc>https://bridg.money/grievance-redressal-policy</loc><priority>1.0</priority></url>
+  <url><loc>https://bridg.money/responsible-disclosure</loc><priority>1.0</priority></url>
+  <url><loc>https://bridg.money/security</loc><priority>1.0</priority></url>
+
+  <!-- Resources -->
+  <url><loc>https://bridg.money/faq</loc><priority>1.0</priority></url>
+  <url><loc>https://bridg.money/blog</loc><priority>0.7</priority></url>
+
+</urlset>
