@@ -4,7 +4,7 @@ import { createBrowserRouter } from "react-router";
 import { StrictMode, startTransition } from "react";
 import { routes } from "./routes";
 import App from "./App";
-import { HelmetProvider } from "react-helmet-async";
+import { HeadProvider } from "react-head";
 
 const router = createBrowserRouter(routes);
 
@@ -27,9 +27,9 @@ appRender().then(() => {
     hydrateRoot(
       document.getElementById("root"),
       <StrictMode>
-        <HelmetProvider>
+        <HeadProvider>
           <App router={router} />
-        </HelmetProvider>
+        </HeadProvider>
       </StrictMode>
     );
   });

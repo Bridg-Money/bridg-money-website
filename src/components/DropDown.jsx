@@ -22,8 +22,8 @@ const Dropdown = ({ button, children }) => {
         <div
           className="
            absolute mt-2 bg-white p-4 rounded-2xl shadow-lg z-10 
-           min-w-[680px] xl:min-w-[750px] max-w-[90vw]
-            left-1/2 -translate-x-1/3 lg:left-[-100%] lg:translate-x-0
+           min-w-170 xl:min-w-185.5 max-w-[90vw]
+            left-1/2 -translate-x-1/3 lg:-left-full lg:translate-x-0
           "
         >
           {children}

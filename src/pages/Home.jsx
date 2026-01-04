@@ -3,24 +3,17 @@ import TickSvg from "../assets/icons/tick.svg";
 import BridgPayImg from "../assets/svg/home/smiley-businesswoman.webp";
 import BridgCollectImg from "../assets/svg/home/happy-businessman.webp";
 import BridgConnectImg from "../assets/svg/home/image-photography-with-natural.webp";
-import AicpaSvg from "../assets/images/aicpa soc.png";
-import RbiSvg from "../assets/images/rbi.png";
-import IsoSvg from "../assets/images/iso.png";
-import PciSvg from "../assets/images/pci.png";
 import TestimonalSvg from "../assets/svg/client container.svg";
 import DurationSvg from "../assets/icons/duration.svg";
 import CodeSvg from "../assets/icons/code.svg";
 import SlaSvg from "../assets/icons/sla.svg";
 import GradeSvg from "../assets/icons/grade.svg";
-import HeroImg from "../assets/images/hero-svg.svg";
+import HeroImg from "../assets/svg/hero-svg.svg";
 import React, { useEffect, useState } from "react";
 import { TextFade } from "../components/Animation";
 import { motion, AnimatePresence, useAnimation } from "motion/react";
 import { Button, TitleDecor } from "@/components/Component";
 import QuotesDecor from "../assets/svg/home/quotes.svg";
-import Testimonal1 from "../assets/images/testimonals/1.jpg";
-import Testimonal2 from "../assets/images/testimonals/2.jpg";
-import Testimonal3 from "../assets/images/testimonals/3.jpg";
 import VerticalCarousel from "@/components/Carousel";
 import GreenTick from "../assets/icons/green tick.svg";
 import XMark from "../assets/icons/x mark.svg";
@@ -37,7 +30,7 @@ import RoutingSvg from "../assets/icons/hero-section/routing.svg";
 import RefundsSvg from "../assets/icons/hero-section/refunds.svg";
 import SupportSvg from "../assets/icons/hero-section/support.svg";
 import { useScreen } from "@/hook/useScreen";
-import Meta from "@/components/Meta";
+import MetaData from "@/components/Meta";
 
 const products = [
   {
@@ -143,19 +136,19 @@ const Home = () => {
   const testimonals = [
     {
       id: 1,
-      img: Testimonal1,
+      img: "/assets/images/testimonals/1.jpg",
       name: "Priya Sharma",
       desc: "bridg.money transformed our payment infrastructure. What used to take weeks now happens in minutes.",
     },
     {
       id: 2,
-      img: Testimonal2,
+      img: "/assets/images/testimonals/2.jpg",
       name: "Raj Patel",
       desc: "The API documentation is incredible, and their support team helped us integrate in just 2 days.",
     },
     {
       id: 3,
-      img: Testimonal3,
+      img: "/assets/images/testimonals/3.jpg",
       name: "Amit Kumar",
       desc: "99.9% uptime isn't just a promise - they deliver. Our business depends on reliability.",
     },
@@ -279,7 +272,7 @@ const Home = () => {
 
   return (
     <>
-      <Meta
+      <MetaData
         metas={{
           title: "bridg.money | Fast & Secure Digital Payments in India",
           desc: "Trusted digital payment platform for fast UPI, QR, and seamless transactions across India.",
@@ -476,24 +469,24 @@ const Home = () => {
             </TextFade>
             <div className="flex justify-center my-10 gap-5 md:gap-10">
               <img
-                src={RbiSvg}
+                src="/assets/images/rbi.png"
                 alt="RBI"
-                className="h-[60px] hover:scale-125 transition-all duration-500"
+                className="h-15 hover:scale-125 transition-all duration-500"
               />
               <img
-                src={PciSvg}
+                src="/assets/images/pci.png"
                 alt="PCI"
-                className="h-[60px] hover:scale-125 transition-all duration-500"
+                className="h-15 hover:scale-125 transition-all duration-500"
               />
               <img
-                src={IsoSvg}
+                src="/assets/images/iso.png"
                 alt="ISO"
-                className="h-[60px] hover:scale-125 transition-all duration-500"
+                className="h-15 hover:scale-125 transition-all duration-500"
               />
               <img
-                src={AicpaSvg}
+                src="/assets/images/aicpa soc.png"
                 alt="AICPA SOC"
-                className="h-[60px] hover:scale-125 transition-all duration-500"
+                className="h-15 hover:scale-125 transition-all duration-500"
               />
             </div>
           </section>
@@ -639,7 +632,7 @@ const Home = () => {
 
           <section className="my-15 lg:my-20 px-6">
             <div className="flex justify-center my-3">
-              <img src={TestimonalSvg} alt="testimonal" className="h-[55px]" />
+              <img src={TestimonalSvg} alt="testimonal" className="h-13.75" />
             </div>
             <TextFade direction="up">
               <h2 className="text-3xl text-center md:text-4xl font-semibold mb-3">
@@ -656,7 +649,7 @@ const Home = () => {
           </section>
 
           <section className="px-6 sm:px-20 my-10 md:my-15 flex justify-center">
-            <div className="bg-[url('./assets/images/ctaHome.jpg')] overflow-hidden bg-fixed bg-no-repeat bg-cover rounded-3xl relative p-5 grid grid-rows-2 md:grid-rows-3 grid-cols-3 items-end">
+            <div className="bg-[url('/assets/images/ctaHome.jpg')] overflow-hidden bg-fixed bg-no-repeat bg-cover rounded-3xl relative p-5 grid grid-rows-2 md:grid-rows-3 grid-cols-3 items-end">
               <div className="absolute inset-0 bg-[#0A0C3326] z-0" />
               <div className="row-start-2 md:row-start-3 z-1 col-span-3 md:col-span-2">
                 <TextFade direction="up">
@@ -773,7 +766,7 @@ const StaggerHeadline = () => {
   };
 
   return (
-    <h1 className="text-dark md:text-center text-[42px] lg:text-6xl my-4 leading-[3.2rem] lg:leading-[4rem] font-semibold">
+    <h1 className="text-dark md:text-center text-[42px] lg:text-6xl my-4 leading-[3.2rem] lg:leading-16 font-semibold">
       Need to Move Money,{" "}
       <span className="inline-block relative">
         <AnimatePresence mode="wait">

@@ -2,7 +2,6 @@ import { TextFade } from "@/components/Animation";
 import { Button, TitleDecor } from "@/components/Component";
 import React from "react";
 import { SlidingCard } from "./components/SlidingCard";
-import BenefitImg from "../../assets/images/useCase/benefit/startup.webp";
 
 const StartUp = () => {
   const cards = [
@@ -53,7 +52,7 @@ const StartUp = () => {
 
   return (
     <>
-      <section className=" bg-[linear-gradient(270deg,rgba(11,11,11,0)_0%,#0B0B0B_100%),url('./assets/images/useCase/hero-section/startup.webp')] bg-cover h-screen bg-center flex items-center">
+      <section className=" bg-[linear-gradient(270deg,rgba(11,11,11,0)_0%,#0B0B0B_100%),url('/assets/images/useCase/hero-section/startup.webp')] bg-cover h-screen bg-center flex items-center">
         <div className="px-6 pt-30 py-20 sm:px-15 xl:px-25">
           <div className="grid lg:grid-cols-2 gap-x-10 gap-y-5">
             <div className="flex items-center">
@@ -123,7 +122,7 @@ const StartUp = () => {
         <div className="grid lg:grid-cols-2 gap-5 gap-y-10 relative">
           <div className="sm:px-15 flex items-center">
             <div className="relative p-2.5">
-              <img src={BenefitImg} className="rounded-3xl" />
+              <img src="/assets/images/useCase/benefit/startup.webp" className="rounded-3xl" />
               <div className="bg-[#A5EB14] h-60 sm:h-80 w-full absolute bottom-0 left-0 -z-10 rounded-3xl" />
             </div>
           </div>
@@ -147,7 +146,7 @@ const StartUp = () => {
       </section>
 
       <section className="px-6 sm:px-20 my-10 md:my-15 flex justify-center">
-        <div className="bg-[url('./assets/images/useCase/cta.webp')] overflow-hidden bg-fixed bg-center bg-no-repeat bg-cover rounded-3xl relative p-5 grid grid-rows-2 md:grid-rows-3 grid-cols-3 items-end">
+        <div className="bg-[url('/assets/images/useCase/cta.webp')] overflow-hidden bg-fixed bg-center bg-no-repeat bg-cover rounded-3xl relative p-5 grid grid-rows-2 md:grid-rows-3 grid-cols-3 items-end">
           <div className="absolute inset-0 bg-[#0A0C3326] z-0" />
           <div className="row-start-2 md:row-start-3 z-1 col-span-3 sm:col-span-2">
             <TextFade direction="up">

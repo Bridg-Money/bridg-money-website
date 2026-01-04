@@ -7,7 +7,7 @@ export default defineConfig(({ command, ssrBuild }) => {
   return {
     plugins: [react(), tailwindcss()],
     ssr: {
-      noExternal: ["react-helmet-async", "react-router"],
+      noExternal: ["react-head", "react-router"],
     },
     resolve: {
       alias: {

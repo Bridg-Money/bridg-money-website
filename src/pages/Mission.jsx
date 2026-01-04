@@ -3,7 +3,6 @@ import TrustedSvg from "../assets/icons/mission-trusted.svg";
 import InnovationSvg from "../assets/icons/mission-innovation.svg";
 import TransactionSvg from "../assets/icons/mission-transaction.svg";
 import SuccessSvg from "../assets/icons/mission-success.svg";
-import MissionWhySecImg from "../assets/images/mission-why-sec.png";
 import TickSvg from "../assets/icons/tick.svg";
 import { TextFade } from "@/components/Animation";
 
@@ -99,7 +98,7 @@ const Mission = () => {
       <section className="mt-15 mb-20 lg:mb-30 px-6 sm:px-15 xl:px-30">
         <div className="grid lg:grid-cols-2 gap-y-10">
           <div className="flex items-center w-full md:px-5   lg:px-10">
-            <img src={MissionWhySecImg} alt="Why We Exist" className="h-2/2" />
+            <img src="/assets/images/mission-why-sec.png" alt="Why We Exist" className="h-2/2" />
           </div>
           <div className="flex items-center">
             <div>

@@ -1,31 +1,21 @@
 {
   "index.html": {
-    "file": "assets/index-CG0AzqRv.js",
+    "file": "assets/index-CA3n2uHv.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
     "css": [
-      "assets/index-CF_RzK8E.css"
+      "assets/index-DWWVzpBj.css"
     ],
     "assets": [
       "assets/developer first api platform-BRLnZvGD.svg",
       "assets/smiley-businesswoman-YM0L2x4w.webp",
       "assets/happy-businessman-qE9hBx_x.webp",
       "assets/image-photography-with-natural-BRyiPaW9.webp",
-      "assets/aicpa soc-BMRKo9TE.png",
-      "assets/rbi-CCMe6BOf.png",
-      "assets/iso-D3LXyORu.png",
-      "assets/pci-CbAydVEr.png",
       "assets/client container-D1JnuFD0.svg",
       "assets/hero-svg-BYxsg6xH.svg",
-      "assets/1-BRmtPHwh.jpg",
-      "assets/2-B0fw3imQ.jpg",
-      "assets/3--lsc-Boz.jpg",
-      "assets/logo-Db9bpFQY.svg",
-      "assets/logo dark-DOLJsy7G.svg",
       "assets/e-commerce-D-IrN68K.svg",
       "assets/missionHero-CQUHvTgX.svg",
-      "assets/mission-why-sec-B1COWuJS.png",
       "assets/hero-CpZDk6Xw.svg",
       "assets/how it works-Bf4fNVUw.svg",
       "assets/connected banking-BjHyVaL0.svg",
@@ -44,262 +34,8 @@
       "assets/Payment Options-Dy26ddkP.svg",
       "assets/e-invoicing-BGgoycSH.svg",
       "assets/instant settlements-BmhkIAan.svg",
-      "assets/online-payment-with-full-control-bridg-collect-BbZvOGk_.jpg",
-      "assets/small-business-B0thUjyk.webp",
-      "assets/startup-CopUHoLz.webp",
-      "assets/sme-C7hT7EGG.webp",
-      "assets/Enterprise-JlWWZf0T.webp",
-      "assets/Retail _ E-commerce-Dh6yEliJ.webp",
-      "assets/Software _ Tech-CUWyx5Ie.webp",
-      "assets/manufaturer-CUf84_is.webp",
-      "assets/Real Estate-C2QG_yl8.webp",
-      "assets/Healthcare-C4Bbk6du.webp",
-      "assets/Hospitality-C1gFrc1P.webp",
-      "assets/Professional Services-DAz8rjFA.webp",
-      "assets/Consultants _ Freelancers-CAJrwaYH.webp",
-      "assets/rbis stringer digitel learning norms-BAilZAKL.webp",
-      "assets/npci raises upi limits-BosYCbIH.webp",
-      "assets/amazon axio deal-Dz-Ki-xg.webp",
-      "assets/gst 2.0-_EOJlCg6.webp",
-      "assets/upi crosses 20 billion transaction-ClKtYUw3.webp",
-      "assets/float and treasury management-Lix4VHwN.webp",
-      "assets/collections made smarter-CWUtK83B.webp",
-      "assets/payouts at scale-DJUMgkRd.webp",
-      "assets/why compliance first infrastructure is the foundation-B1Jr-mYA.webp",
-      "assets/future of api banking in india-Byh8YUuO.webp",
-      "assets/connected banking growth level-Ca2Gorn4.webp",
-      "assets/gaming ban in india-7rHeeDID.webp",
-      "assets/bridging banks and businesses-a0vDOzS0.webp",
-      "assets/careersHero-C2qCkHQ9.jpg",
-      "assets/small-business-DLOaqDzM.webp",
-      "assets/Consultants-and-Freelancers-D-qhLtZl.webp",
-      "assets/Enterprise-CN_ZP8LB.webp",
-      "assets/Healthcare-BtuXgLbP.webp",
-      "assets/Hospitality-qgY_H6Ar.webp",
-      "assets/Professional-Services-CnevIHx5.webp",
-      "assets/Real-Estate-CeslBL-A.webp",
-      "assets/Retail-and-E-commerce-ChbWcux8.webp",
-      "assets/Software-and-Tech-B3aTbEW4.webp",
-      "assets/manufaturer-DbOFPuC9.webp",
-      "assets/sme-f7MUp4Ht.webp",
-      "assets/startup-Co_7n9qH.webp",
-      "assets/ctaHome-BoFVUpiq.jpg",
-      "assets/how-it-works-bridg-collect-C6MR55lc.jpg",
-      "assets/cta-DLyO_bBm.webp",
       "assets/bankSupport-DNQ3BHG-.jpg"
     ]
-  },
-  "src/assets/images/aicpa soc.png": {
-    "file": "assets/aicpa soc-BMRKo9TE.png",
-    "src": "src/assets/images/aicpa soc.png"
-  },
-  "src/assets/images/blogs/amazon axio deal.webp": {
-    "file": "assets/amazon axio deal-Dz-Ki-xg.webp",
-    "src": "src/assets/images/blogs/amazon axio deal.webp"
-  },
-  "src/assets/images/blogs/bridging banks and businesses.webp": {
-    "file": "assets/bridging banks and businesses-a0vDOzS0.webp",
-    "src": "src/assets/images/blogs/bridging banks and businesses.webp"
-  },
-  "src/assets/images/blogs/collections made smarter.webp": {
-    "file": "assets/collections made smarter-CWUtK83B.webp",
-    "src": "src/assets/images/blogs/collections made smarter.webp"
-  },
-  "src/assets/images/blogs/connected banking growth level.webp": {
-    "file": "assets/connected banking growth level-Ca2Gorn4.webp",
-    "src": "src/assets/images/blogs/connected banking growth level.webp"
-  },
-  "src/assets/images/blogs/float and treasury management.webp": {
-    "file": "assets/float and treasury management-Lix4VHwN.webp",
-    "src": "src/assets/images/blogs/float and treasury management.webp"
-  },
-  "src/assets/images/blogs/future of api banking in india.webp": {
-    "file": "assets/future of api banking in india-Byh8YUuO.webp",
-    "src": "src/assets/images/blogs/future of api banking in india.webp"
-  },
-  "src/assets/images/blogs/gaming ban in india.webp": {
-    "file": "assets/gaming ban in india-7rHeeDID.webp",
-    "src": "src/assets/images/blogs/gaming ban in india.webp"
-  },
-  "src/assets/images/blogs/gst 2.0.webp": {
-    "file": "assets/gst 2.0-_EOJlCg6.webp",
-    "src": "src/assets/images/blogs/gst 2.0.webp"
-  },
-  "src/assets/images/blogs/npci raises upi limits.webp": {
-    "file": "assets/npci raises upi limits-BosYCbIH.webp",
-    "src": "src/assets/images/blogs/npci raises upi limits.webp"
-  },
-  "src/assets/images/blogs/payouts at scale.webp": {
-    "file": "assets/payouts at scale-DJUMgkRd.webp",
-    "src": "src/assets/images/blogs/payouts at scale.webp"
-  },
-  "src/assets/images/blogs/rbis stringer digitel learning norms.webp": {
-    "file": "assets/rbis stringer digitel learning norms-BAilZAKL.webp",
-    "src": "src/assets/images/blogs/rbis stringer digitel learning norms.webp"
-  },
-  "src/assets/images/blogs/upi crosses 20 billion transaction.webp": {
-    "file": "assets/upi crosses 20 billion transaction-ClKtYUw3.webp",
-    "src": "src/assets/images/blogs/upi crosses 20 billion transaction.webp"
-  },
-  "src/assets/images/blogs/why compliance first infrastructure is the foundation.webp": {
-    "file": "assets/why compliance first infrastructure is the foundation-B1Jr-mYA.webp",
-    "src": "src/assets/images/blogs/why compliance first infrastructure is the foundation.webp"
-  },
-  "src/assets/images/careersHero.jpg": {
-    "file": "assets/careersHero-C2qCkHQ9.jpg",
-    "src": "src/assets/images/careersHero.jpg"
-  },
-  "src/assets/images/ctaHome.jpg": {
-    "file": "assets/ctaHome-BoFVUpiq.jpg",
-    "src": "src/assets/images/ctaHome.jpg"
-  },
-  "src/assets/images/hero-svg.svg": {
-    "file": "assets/hero-svg-BYxsg6xH.svg",
-    "src": "src/assets/images/hero-svg.svg"
-  },
-  "src/assets/images/how-it-works-bridg-collect.jpg": {
-    "file": "assets/how-it-works-bridg-collect-C6MR55lc.jpg",
-    "src": "src/assets/images/how-it-works-bridg-collect.jpg"
-  },
-  "src/assets/images/iso.png": {
-    "file": "assets/iso-D3LXyORu.png",
-    "src": "src/assets/images/iso.png"
-  },
-  "src/assets/images/mission-why-sec.png": {
-    "file": "assets/mission-why-sec-B1COWuJS.png",
-    "src": "src/assets/images/mission-why-sec.png"
-  },
-  "src/assets/images/online-payment-with-full-control-bridg-collect.jpg": {
-    "file": "assets/online-payment-with-full-control-bridg-collect-BbZvOGk_.jpg",
-    "src": "src/assets/images/online-payment-with-full-control-bridg-collect.jpg"
-  },
-  "src/assets/images/pci.png": {
-    "file": "assets/pci-CbAydVEr.png",
-    "src": "src/assets/images/pci.png"
-  },
-  "src/assets/images/rbi.png": {
-    "file": "assets/rbi-CCMe6BOf.png",
-    "src": "src/assets/images/rbi.png"
-  },
-  "src/assets/images/testimonals/1.jpg": {
-    "file": "assets/1-BRmtPHwh.jpg",
-    "src": "src/assets/images/testimonals/1.jpg"
-  },
-  "src/assets/images/testimonals/2.jpg": {
-    "file": "assets/2-B0fw3imQ.jpg",
-    "src": "src/assets/images/testimonals/2.jpg"
-  },
-  "src/assets/images/testimonals/3.jpg": {
-    "file": "assets/3--lsc-Boz.jpg",
-    "src": "src/assets/images/testimonals/3.jpg"
-  },
-  "src/assets/images/useCase/benefit/Consultants & Freelancers.webp": {
-    "file": "assets/Consultants _ Freelancers-CAJrwaYH.webp",
-    "src": "src/assets/images/useCase/benefit/Consultants & Freelancers.webp"
-  },
-  "src/assets/images/useCase/benefit/Enterprise.webp": {
-    "file": "assets/Enterprise-JlWWZf0T.webp",
-    "src": "src/assets/images/useCase/benefit/Enterprise.webp"
-  },
-  "src/assets/images/useCase/benefit/Healthcare.webp": {
-    "file": "assets/Healthcare-C4Bbk6du.webp",
-    "src": "src/assets/images/useCase/benefit/Healthcare.webp"
-  },
-  "src/assets/images/useCase/benefit/Hospitality.webp": {
-    "file": "assets/Hospitality-C1gFrc1P.webp",
-    "src": "src/assets/images/useCase/benefit/Hospitality.webp"
-  },
-  "src/assets/images/useCase/benefit/Professional Services.webp": {
-    "file": "assets/Professional Services-DAz8rjFA.webp",
-    "src": "src/assets/images/useCase/benefit/Professional Services.webp"
-  },
-  "src/assets/images/useCase/benefit/Real Estate.webp": {
-    "file": "assets/Real Estate-C2QG_yl8.webp",
-    "src": "src/assets/images/useCase/benefit/Real Estate.webp"
-  },
-  "src/assets/images/useCase/benefit/Retail & E-commerce.webp": {
-    "file": "assets/Retail _ E-commerce-Dh6yEliJ.webp",
-    "src": "src/assets/images/useCase/benefit/Retail & E-commerce.webp"
-  },
-  "src/assets/images/useCase/benefit/Software & Tech.webp": {
-    "file": "assets/Software _ Tech-CUWyx5Ie.webp",
-    "src": "src/assets/images/useCase/benefit/Software & Tech.webp"
-  },
-  "src/assets/images/useCase/benefit/manufaturer.webp": {
-    "file": "assets/manufaturer-CUf84_is.webp",
-    "src": "src/assets/images/useCase/benefit/manufaturer.webp"
-  },
-  "src/assets/images/useCase/benefit/small-business.webp": {
-    "file": "assets/small-business-B0thUjyk.webp",
-    "src": "src/assets/images/useCase/benefit/small-business.webp"
-  },
-  "src/assets/images/useCase/benefit/sme.webp": {
-    "file": "assets/sme-C7hT7EGG.webp",
-    "src": "src/assets/images/useCase/benefit/sme.webp"
-  },
-  "src/assets/images/useCase/benefit/startup.webp": {
-    "file": "assets/startup-CopUHoLz.webp",
-    "src": "src/assets/images/useCase/benefit/startup.webp"
-  },
-  "src/assets/images/useCase/cta.webp": {
-    "file": "assets/cta-DLyO_bBm.webp",
-    "src": "src/assets/images/useCase/cta.webp"
-  },
-  "src/assets/images/useCase/hero-section/Consultants-and-Freelancers.webp": {
-    "file": "assets/Consultants-and-Freelancers-D-qhLtZl.webp",
-    "src": "src/assets/images/useCase/hero-section/Consultants-and-Freelancers.webp"
-  },
-  "src/assets/images/useCase/hero-section/Enterprise.webp": {
-    "file": "assets/Enterprise-CN_ZP8LB.webp",
-    "src": "src/assets/images/useCase/hero-section/Enterprise.webp"
-  },
-  "src/assets/images/useCase/hero-section/Healthcare.webp": {
-    "file": "assets/Healthcare-BtuXgLbP.webp",
-    "src": "src/assets/images/useCase/hero-section/Healthcare.webp"
-  },
-  "src/assets/images/useCase/hero-section/Hospitality.webp": {
-    "file": "assets/Hospitality-qgY_H6Ar.webp",
-    "src": "src/assets/images/useCase/hero-section/Hospitality.webp"
-  },
-  "src/assets/images/useCase/hero-section/Professional-Services.webp": {
-    "file": "assets/Professional-Services-CnevIHx5.webp",
-    "src": "src/assets/images/useCase/hero-section/Professional-Services.webp"
-  },
-  "src/assets/images/useCase/hero-section/Real-Estate.webp": {
-    "file": "assets/Real-Estate-CeslBL-A.webp",
-    "src": "src/assets/images/useCase/hero-section/Real-Estate.webp"
-  },
-  "src/assets/images/useCase/hero-section/Retail-and-E-commerce.webp": {
-    "file": "assets/Retail-and-E-commerce-ChbWcux8.webp",
-    "src": "src/assets/images/useCase/hero-section/Retail-and-E-commerce.webp"
-  },
-  "src/assets/images/useCase/hero-section/Software-and-Tech.webp": {
-    "file": "assets/Software-and-Tech-B3aTbEW4.webp",
-    "src": "src/assets/images/useCase/hero-section/Software-and-Tech.webp"
-  },
-  "src/assets/images/useCase/hero-section/manufaturer.webp": {
-    "file": "assets/manufaturer-DbOFPuC9.webp",
-    "src": "src/assets/images/useCase/hero-section/manufaturer.webp"
-  },
-  "src/assets/images/useCase/hero-section/small-business.webp": {
-    "file": "assets/small-business-DLOaqDzM.webp",
-    "src": "src/assets/images/useCase/hero-section/small-business.webp"
-  },
-  "src/assets/images/useCase/hero-section/sme.webp": {
-    "file": "assets/sme-f7MUp4Ht.webp",
-    "src": "src/assets/images/useCase/hero-section/sme.webp"
-  },
-  "src/assets/images/useCase/hero-section/startup.webp": {
-    "file": "assets/startup-Co_7n9qH.webp",
-    "src": "src/assets/images/useCase/hero-section/startup.webp"
-  },
-  "src/assets/logo/logo dark.svg": {
-    "file": "assets/logo dark-DOLJsy7G.svg",
-    "src": "src/assets/logo/logo dark.svg"
-  },
-  "src/assets/logo/logo.svg": {
-    "file": "assets/logo-Db9bpFQY.svg",
-    "src": "src/assets/logo/logo.svg"
   },
   "src/assets/svg/bridgCollect/Payment Options.svg": {
     "file": "assets/Payment Options-Dy26ddkP.svg",
@@ -384,6 +120,10 @@
   "src/assets/svg/developer first api platform.svg": {
     "file": "assets/developer first api platform-BRLnZvGD.svg",
     "src": "src/assets/svg/developer first api platform.svg"
+  },
+  "src/assets/svg/hero-svg.svg": {
+    "file": "assets/hero-svg-BYxsg6xH.svg",
+    "src": "src/assets/svg/hero-svg.svg"
   },
   "src/assets/svg/home/happy-businessman.webp": {
     "file": "assets/happy-businessman-qE9hBx_x.webp",

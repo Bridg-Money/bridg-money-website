@@ -1,18 +1,5 @@
 import React from "react";
 import { Outlet, Link } from "react-router";
-import RbiStrongerDigitalLearningNorms from "../../assets/images/blogs/rbis stringer digitel learning norms.webp";
-import NpciRaisesUpiLimits from "../../assets/images/blogs/npci raises upi limits.webp";
-import AmazonAxioDeal from "../../assets/images/blogs/amazon axio deal.webp";
-import GST2 from "../../assets/images/blogs/gst 2.0.webp";
-import UpiReaches20BillionTransaction from "../../assets/images/blogs/upi crosses 20 billion transaction.webp";
-import FloatAndTreasuryManagement from "../../assets/images/blogs/float and treasury management.webp";
-import CollectionMadeSmarter from "../../assets/images/blogs/collections made smarter.webp";
-import PayoutsAtScale from "../../assets/images/blogs/payouts at scale.webp";
-import whyComplianceFirstInfrastructureIsTheFoundation from "../../assets/images/blogs/why compliance first infrastructure is the foundation.webp";
-import FutureOfApiBanking from "../../assets/images/blogs/future of api banking in india.webp";
-import connectedBankingGrowth from "../../assets/images/blogs/connected banking growth level.webp";
-import gamingBanInIndia from "../../assets/images/blogs/gaming ban in india.webp";
-import bridgingBanksAndBusinesses from "../../assets/images/blogs/bridging banks and businesses.webp";
 
 const BlogHome = () => {
   const blogs = [
@@ -21,7 +8,7 @@ const BlogHome = () => {
       title:
         "RBI’s Stronger Digital Lending Norms: Why They’re a Turning Point for Fintech Infrastructure",
       url: "rbis-stronger-digital-lending-norms-why-theyre-a-turning-point-for-fintech-infrastructure",
-      img: RbiStrongerDigitalLearningNorms,
+      img: "/assets/images/blogs/rbis-stringer-digitel-learning-norms.webp",
       date: "11 Sep 2025",
       subText: `The Reserve Bank of India (RBI) has recently issued updated
               Digital Lending Directions, 2025, strengthening regulatory
@@ -187,7 +174,7 @@ const BlogHome = () => {
       id: 2,
       title: "NPCI Raises UPI Limits: A New Era of High-Value Digital Payments",
       url: "npci-raises-upi-limits-a-new-era-of-high-value-digital-payments",
-      img: NpciRaisesUpiLimits,
+      img: "/assets/images/blogs/npci-raises-upi-limits.webp",
       date: "9 Sep 2025",
       subText: `India’s digital payment ecosystem just got a major upgrade. The National Payments Corporation of India (NPCI) has significantly increased UPI transaction limits—now allowing up to ₹5 lakh per transaction and ₹10 lakh per day for capital market and select merchant categories (The Times of India, The Economic Times).`,
       section: (
@@ -354,7 +341,7 @@ const BlogHome = () => {
       title:
         "Amazon’s Axio Deal: What It Means for Financial Infrastructure in India",
       url: "amazons-axio-deal-what-it-means-for-financial-infrastructure-in-india",
-      img: AmazonAxioDeal,
+      img: "/assets/images/blogs/amazon-axio-deal.webp",
       date: "9 Sep 2025",
       subText: `Amazon has completed its $200 million all-cash acquisition of Axio, earning a Non-Banking Financial Company (NBFC) license and gaining direct access to India’s digital credit market.`,
       section: (
@@ -513,7 +500,7 @@ const BlogHome = () => {
       id: 4,
       title: "GST 2.0 Simplified: What It Means for Fintech and Businesses",
       url: "gst-2-0-simplified-what-it-means-for-fintech-and-businesses",
-      img: GST2,
+      img: "/assets/images/blogs/gst-2.0.webp",
       date: "4 Sep 2025",
       subText: `Amazon has completed its $200 million all-cash acquisition of Axio, earning a Non-Banking Financial Company (NBFC) license and gaining direct access to India’s digital credit market.`,
       section: (
@@ -688,7 +675,7 @@ const BlogHome = () => {
       title:
         "UPI Crosses 20 Billion Transactions in a Month: Why TSPs Must Enable the Next Wave of Growth",
       url: "upi-crosses-20-billion-transactions-in-a-month-why-tsps-must-enable-the-next-wave-of-growth",
-      img: UpiReaches20BillionTransaction,
+      img: "/assets/images/blogs/upi-crosses-20-billion-transaction.webp",
       date: "1 Sep 2025",
       subText: `India’s digital payments journey reached a landmark moment in August 2025, as UPI transaction volumes surpassed 20 billion in a single month, marking a new high for digital adoption and financial inclusion.`,
       section: (
@@ -870,7 +857,7 @@ const BlogHome = () => {
       title:
         "Float & Treasury Management: Unlocking New Revenue for Enterprises",
       url: "float-and-treasury-management-unlocking-new-revenue-for-enterprises",
-      img: FloatAndTreasuryManagement,
+      img: "/assets/images/blogs/float-and-treasury-management.webp",
       date: "30 Aug 2025",
       subText: `India’s digital payments journey reached a landmark moment in August 2025, as UPI transaction volumes surpassed 20 billion in a single month, marking a new high for digital adoption and financial inclusion.`,
       section: (
@@ -1050,7 +1037,7 @@ const BlogHome = () => {
       title:
         "Collections Made Smarter: Virtual Accounts and Automated Reconciliation",
       url: "collections-made-smarter-virtual-accounts-and-automated-reconciliation",
-      img: CollectionMadeSmarter,
+      img: "/assets/images/blogs/collections-made-smarter.webp",
       date: "29 Aug 2025",
       subText: `For any business, collecting payments efficiently is just as important as making payouts. Yet traditional banking systems often leave enterprises struggling with fragmented inflows, delayed settlements, and manual reconciliation that drains time and resources. In India’s fast-growing digital economy, this inefficiency isn’t sustainable.`,
       section: (
@@ -1228,7 +1215,7 @@ const BlogHome = () => {
       id: 8,
       title: "Payouts at Scale: How TSPs Are Powering India’s Digital Economy",
       url: "payouts-at-scale-how-tsps-are-powering-indias-digital-economy",
-      img: PayoutsAtScale,
+      img: "/assets/images/blogs/payouts-at-scale.webp",
       date: "28 Aug 2025",
       subText: `India’s digital economy is built on speed. From e-commerce marketplaces to gig platforms, businesses need the ability to disburse funds instantly—whether it’s vendor settlements, employee salaries, or customer refunds.`,
       section: (
@@ -1406,7 +1393,7 @@ const BlogHome = () => {
       id: 9,
       title: "Why Compliance-First Infrastructure is the Foundation of Fintech",
       url: "why-compliance-first-infrastructure-is-the-foundation-of-fintech",
-      img: whyComplianceFirstInfrastructureIsTheFoundation,
+      img: "/assets/images/blogs/why-compliance-first-infrastructure-is-the-foundation.webp",
       date: "26 Aug 2025",
       subText: `India’s digital payments sector is expanding at an unprecedented pace. From startups to large enterprises, businesses are relying on fintech infrastructure for faster payouts, seamless collections, and connected banking.`,
       section: (
@@ -1583,7 +1570,7 @@ const BlogHome = () => {
       title:
         "The Future of API Banking in India: Why TSPs Are the Missing Link",
       url: "the-future-of-api-banking-in-india-why-tsps-are-the-missing-link",
-      img: FutureOfApiBanking,
+      img: "/assets/images/blogs/future-of-api-banking-in-india.webp",
       date: "24 Aug 2025",
       subText: `India’s fintech ecosystem is undergoing a massive transformation. With businesses demanding faster, more reliable ways to move money, API Banking has emerged as the backbone of digital payments and corporate banking infrastructure.`,
       section: (
@@ -1754,7 +1741,7 @@ const BlogHome = () => {
       id: 11,
       title: "Connected Banking as a Growth Lever for Businesses",
       url: "connected-banking-as-a-growth-lever-for-businesses",
-      img: connectedBankingGrowth,
+      img: "/assets/images/blogs/connected-banking-growth-level.webp",
       date: "24 Aug 2025",
       subText: `India’s financial ecosystem is evolving rapidly. As businesses scale, managing multiple banking relationships has become increasingly complex. From logging into different portals to reconciling transactions manually, finance teams are burdened with fragmented systems that slow down operations and increase risks.`,
       section: (
@@ -1923,7 +1910,7 @@ const BlogHome = () => {
       title:
         "Gaming Ban in India: Why bridg.money Stays Committed to Compliance",
       url: "gaming-ban-in-india-why-bridg-money-stays-committed-to-compliance",
-      img: gamingBanInIndia,
+      img: "/assets/images/blogs/gaming-ban-in-india.webp",
       date: "22 Aug 2025",
       subText: `India’s digital payments ecosystem is at a crossroads. While businesses, fintechs, and platforms are embracing API-led infrastructure to scale faster, regulators are also drawing firmer boundaries on what is acceptable.`,
       section: (
@@ -2069,7 +2056,7 @@ const BlogHome = () => {
       title:
         "Bridging Banks and Businesses: The Future of Money Movement in India",
       url: "bridging-banks-and-businesses-the-future-of-money-movement-in-india",
-      img: bridgingBanksAndBusinesses,
+      img: "/assets/images/blogs/bridging-banks-and-businesses.webp",
       date: "21 Aug 2025",
       subText: `In today’s digital-first economy, money doesn’t just move—it powers growth. For businesses, marketplaces, fintechs, and platforms, the ability to transfer funds quickly, securely, and compliantly isn’t just an operational need, it’s a competitive advantage.`,
       section: (
@@ -2086,8 +2073,7 @@ const BlogHome = () => {
               Yet, for many, managing payouts, collections, and reconciliations
               across multiple banks remains fragmented, slow, and
               compliance-heavy. That’s where{" "}
-              <strong>Technology Service Providers (TSPs)</strong>{" "}
-              like{" "}
+              <strong>Technology Service Providers (TSPs)</strong> like{" "}
               <Link className="text-blue-600" to="/">
                 bridg.money
               </Link>{" "}

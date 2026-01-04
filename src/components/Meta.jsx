@@ -1,47 +1,45 @@
-import { Helmet } from "react-helmet-async";
+import { Title, Meta as HeadMeta, Link as HeadLink } from "react-head";
 import { useLocation } from "react-router";
 
-const Meta = ({ metas }) => {
-  const loaction = useLocation();
+const MetaData = ({ metas = {} }) => {
+  const location = useLocation();
   const { title, desc, ogTitle, ogDesc } = metas;
+  const url = `${import.meta.env.VITE_DOMAIN}${location.pathname}`;
+
   return (
     <>
-      <Helmet>
-        {title && (
-          <>
-            <title>{title}</title>
-            <meta name="twitter:title" content={title} />
-          </>
-        )}
-        {desc && (
-          <>
-            <meta name="description" content={desc} />
-            <meta name="twitter:description" content={desc} />
-          </>
-        )}
-        <link
-          rel="canonical"
-          href={`https://bridg.money${loaction.pathname}`}
-        />
-        {(ogTitle || title) && (
-          <meta property="og:title" content={ogTitle || title} />
-        )}
-        {(ogDesc || desc) && (
-          <meta property="og:description" content={ogDesc || desc} />
-        )}
-        {(ogDesc || desc) && (
-          <meta property="og:description" content={ogDesc || desc} />
-        )}
-        {(ogDesc || desc) && (
-          <meta property="og:description" content={ogDesc || desc} />
-        )}
-        <meta
-          property="og:url"
-          content={`https://bridg.money${loaction.pathname}`}
-        />
-      </Helmet>
+      {title && (
+        <>
+          <Title key="title">{title}</Title>
+          <HeadMeta key="twitter-title" name="twitter:title" content={title} />
+          <HeadMeta
+            key="og-title"
+            property="og:title"
+            content={ogTitle || title}
+          />
+        </>
+      )}
+
+      {desc && (
+        <>
+          <HeadMeta key="description" name="description" content={desc} />
+          <HeadMeta
+            key="twitter-description"
+            name="twitter:description"
+            content={desc}
+          />
+          <HeadMeta
+            key="og-description"
+            property="og:description"
+            content={ogDesc || desc}
+          />
+        </>
+      )}
+
+      <HeadLink key="canonical" rel="canonical" href={url} />
+      <HeadMeta key="og-url" property="og:url" content={url} />
     </>
   );
 };
 
-export default Meta;
+export default MetaData;

@@ -18,7 +18,6 @@ import BankSettlementSvg from "../../assets/svg/bridgCollect/Bank Settlements.sv
 import ReconcileSvg from "../../assets/svg/bridgCollect/Reconcile.svg";
 import EInvoicingSvg from "../../assets/svg/bridgCollect/e-invoicing.svg";
 import InstantSettlementSvg from "../../assets/svg/bridgCollect/instant settlements.svg";
-import PaymentWithFullControlImg from "../../assets/images/online-payment-with-full-control-bridg-collect.jpg";
 import VerticalCarousel from "@/components/Carousel";
 import fullControlSvg1 from "../../assets/svg/bridgCollect/icons/1.svg";
 import fullControlSvg2 from "../../assets/svg/bridgCollect/icons/2.svg";
@@ -275,7 +274,7 @@ const BridgCollect = () => {
               Accept Payments Online With Full Control
             </h2>
             <img
-              src={PaymentWithFullControlImg}
+              src="/assets/images/online-payment-with-full-control-bridg-collect.jpg"
               className="h-50 rounded-2xl object-center object-cover"
               alt="Accept Payments Online With Full Control"
             />

@@ -1,28 +1,24 @@
 import "./index.css";
-import { renderToString } from "react-dom/server";
+import { renderToString, renderToStaticMarkup } from "react-dom/server";
 import { createMemoryRouter } from "react-router";
-import { HelmetProvider } from "react-helmet-async";
 import { routes } from "./routes";
 import App from "./App";
+import { HeadProvider } from "react-head";
 
-export function render(url) {
-  const helmetContext = {};
+export async function render(url) {
   const router = createMemoryRouter(routes, {
     initialEntries: [url],
   });
-  const html = renderToString(
-    <HelmetProvider context={helmetContext}>
+  const headTags = [];
+
+  const app = (
+    <HeadProvider headTags={headTags}>
       <App router={router} />
-    </HelmetProvider>
+    </HeadProvider>
   );
 
-  const { helmet } = helmetContext;
+  const appHtml = renderToString(app);
+  const head = renderToStaticMarkup(<>{headTags}</>);
 
-  const head = `
-    ${helmet.title.toString()}
-    ${helmet.meta.toString()}
-    ${helmet.link.toString()}
-  `;
-
-  return { appHtml: html, head };
+  return { appHtml, head };
 }

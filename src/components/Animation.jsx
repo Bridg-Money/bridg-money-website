@@ -1,4 +1,4 @@
-import React, { memo, useEffect,useRef } from "react";
+import React, { memo, useRef } from "react";
 import { motion, useInView } from "motion/react";
 
 export const AnimatedImage = memo(
@@ -111,6 +111,3 @@ export const CardFade = memo(
     );
   }
 );
-
-
-

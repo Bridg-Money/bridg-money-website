@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useOutletContext, useParams } from "react-router";
-import Logo from "../../assets/logo/logo dark.svg";
 import LinkedInSvg from "../../assets/icons/linkedin.svg";
 import InstaSvg from "../../assets/icons/insta.svg";
 import FbSvg from "../../assets/icons/fb.svg";
@@ -38,7 +37,7 @@ const Blog = () => {
           <div className="p-7 lg:px-5 shadow rounded-2xl sticky top-30">
             <Link to="">
               <img
-                src={Logo}
+                src="/assets/logo/logo-dark.svg"
                 alt="footer logo"
                 className="h-13 lg:h-13 xl:15 md:h-15 mb-2 cursor-pointer"
               />

@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = process.env.PORT || 5173;
 
-const isProd = process.env.MODE === "production";
+const isProd = process.env.NODE_ENV === "production";
 
 async function createServer() {
   const app = express();
@@ -74,7 +74,7 @@ async function createServer() {
   app.listen(PORT, () =>
     console.log(
       `${
-        isProd ? "✅ Production" : "⚡ Dev"
+        isProd ? "✅ Production" : "⚡ Development"
       } SSR running at http://localhost:${PORT}`
     )
   );

@@ -1,4 +1,3 @@
-import Logo from "../assets/logo/logo.svg";
 import LinkedInSvg from "../assets/icons/linkedin.svg";
 import InstaSvg from "../assets/icons/insta.svg";
 import FbSvg from "../assets/icons/fb.svg";
@@ -15,7 +14,7 @@ const Footer = () => {
           <div className="pe-10">
             <button onClick={() => scrollNavigate("/")}>
               <img
-                src={Logo}
+                src="/assets/logo/logo.svg"
                 alt="footer logo"
                 className="h-15 mb-2 cursor-pointer"
               />
@@ -51,7 +50,10 @@ const Footer = () => {
                   className="cursor-pointer hover:scale-125 transition"
                 />
               </a>
-              <a href="https://www.linkedin.com/company/bridg-financial-technologies-private-limited/" target="_blank">
+              <a
+                href="https://www.linkedin.com/company/bridg-financial-technologies-private-limited/"
+                target="_blank"
+              >
                 <img
                   src={LinkedInSvg}
                   alt="LinkedIn"

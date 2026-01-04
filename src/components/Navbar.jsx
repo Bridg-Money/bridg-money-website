@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router";
-import LogoDark from "../assets/logo/logo dark.svg";
 import ArrowSvg from "../assets/icons/arrow.svg";
 import BridgOnboardSvg from "../assets/svg/bridgonboard.svg";
 import BridgConnectSvg from "../assets/svg/bridgconnect.svg";
@@ -353,12 +352,12 @@ const Navbar = () => {
       >
         <div className="px-4">
           <div className="flex justify-between items-center">
-            <div className="flex-shrink-0">
+            <div className="shrink-0">
               <Link to="/">
                 <img
-                  src={homeRoute ? (isSticky ? LogoDark : LogoDark) : LogoDark}
+                  src="/assets/logo/logo-dark.svg"
                   alt="logo"
-                  className="h-[50px]"
+                  className="h-12.5"
                 />
               </Link>
             </div>
