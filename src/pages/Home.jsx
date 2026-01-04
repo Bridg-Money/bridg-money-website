@@ -1,9 +1,9 @@
-import DevFirstApiPlatformImg from "../assets/svg/developer first api platform.svg";
+import DevFirstApiPlatformImg from "../assets/svg/developer-first-api-platform.svg";
 import TickSvg from "../assets/icons/tick.svg";
 import BridgPayImg from "../assets/svg/home/smiley-businesswoman.webp";
 import BridgCollectImg from "../assets/svg/home/happy-businessman.webp";
 import BridgConnectImg from "../assets/svg/home/image-photography-with-natural.webp";
-import TestimonalSvg from "../assets/svg/client container.svg";
+import TestimonalSvg from "../assets/svg/client-container.svg";
 import DurationSvg from "../assets/icons/duration.svg";
 import CodeSvg from "../assets/icons/code.svg";
 import SlaSvg from "../assets/icons/sla.svg";
@@ -15,8 +15,8 @@ import { motion, AnimatePresence, useAnimation } from "motion/react";
 import { Button, TitleDecor } from "@/components/Component";
 import QuotesDecor from "../assets/svg/home/quotes.svg";
 import VerticalCarousel from "@/components/Carousel";
-import GreenTick from "../assets/icons/green tick.svg";
-import XMark from "../assets/icons/x mark.svg";
+import GreenTick from "../assets/icons/green-tick.svg";
+import XMark from "../assets/icons/x-mark.svg";
 import BridgOnboardSvg from "../assets/svg/bridgonboard.svg";
 import BridgConnectSvg from "../assets/svg/bridgconnect.svg";
 import BridgCollectSvg from "../assets/svg/bridgcollect.svg";
@@ -484,7 +484,7 @@ const Home = () => {
                 className="h-15 hover:scale-125 transition-all duration-500"
               />
               <img
-                src="/assets/images/aicpa soc.png"
+                src="/assets/images/aicpa-soc.png"
                 alt="AICPA SOC"
                 className="h-15 hover:scale-125 transition-all duration-500"
               />

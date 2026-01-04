@@ -1,10 +1,10 @@
-import TestimonalSvg from "../assets/svg/client container.svg";
-import ModularAndScalableApiSvg from "../assets/icons/modular and scalable api.svg";
+import TestimonalSvg from "../assets/svg/client-container.svg";
+import ModularAndScalableApiSvg from "../assets/icons/modular-and-scalable-api.svg";
 import SecuritySvg from "../assets/icons/security.svg";
-import BackendEcoSystemSvg from "../assets/icons/backend ecosystem.svg";
-import RbiComplaintInfrastructureSvg from "../assets/icons/rbi complaint infrastructure.svg";
-import MultiBankNetworkSvg from "../assets/icons/multi bank network.svg";
-import OpenLinkSvg from "../assets/icons/open link.svg";
+import BackendEcoSystemSvg from "../assets/icons/backend-ecosystem.svg";
+import RbiComplaintInfrastructureSvg from "../assets/icons/rbi-complaint-infrastructure.svg";
+import MultiBankNetworkSvg from "../assets/icons/multi-bank-network.svg";
+import OpenLinkSvg from "../assets/icons/open-link.svg";
 
 const About = () => {
   const WhyBridgMoney = [

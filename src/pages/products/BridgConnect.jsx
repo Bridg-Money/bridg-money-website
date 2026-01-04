@@ -3,15 +3,15 @@ import { TextFade } from "@/components/Animation";
 import { Button, TitleDecor } from "@/components/Component";
 import HeroSvg from "../../assets/svg/bridgConnect/hero.svg";
 import TickSvg from "../../assets/icons/tick.svg";
-import ConnectAccountSvg from "../../assets/svg/bridgConnect/Connect Your Account.svg";
-import SecureAccessSvg from "../../assets/svg/bridgConnect/Authorize Secure Access.svg";
-import ConnectedBankingSvg from "../../assets/svg/bridgConnect/Get Connected Banking.svg";
-import AccountToAccountTransferSvg from "../../assets/svg/bridgConnect/account to account transfer.svg";
-import ManageBankAccountSvg from "../../assets/svg/bridgConnect/manage bank account.svg";
-import BusinessIcon from "../../assets/svg/bridgConnect/icons/Businesses & Startups.svg";
-import FinanceTeamIcon from "../../assets/svg/bridgConnect/icons/Finance Teams.svg";
-import PlatformAndFintechsIcon from "../../assets/svg/bridgConnect/icons/Platforms & Fintechs.svg";
-import CTADecorSvg from "../../assets/svg/cta decor.svg";
+import ConnectAccountSvg from "../../assets/svg/bridgConnect/Connect-Your-Account.svg";
+import SecureAccessSvg from "../../assets/svg/bridgConnect/Authorize-Secure-Access.svg";
+import ConnectedBankingSvg from "../../assets/svg/bridgConnect/Get-Connected-Banking.svg";
+import AccountToAccountTransferSvg from "../../assets/svg/bridgConnect/account-to-account-transfer.svg";
+import ManageBankAccountSvg from "../../assets/svg/bridgConnect/manage-bank-account.svg";
+import BusinessIcon from "../../assets/svg/bridgConnect/icons/Businesses&Startups.svg";
+import FinanceTeamIcon from "../../assets/svg/bridgConnect/icons/Finance-Teams.svg";
+import PlatformAndFintechsIcon from "../../assets/svg/bridgConnect/icons/Platforms&Fintechs.svg";
+import CTADecorSvg from "../../assets/svg/cta-decor.svg";
 import { motion, useScroll, useTransform } from "motion/react";
 
 const BridgConnect = () => {

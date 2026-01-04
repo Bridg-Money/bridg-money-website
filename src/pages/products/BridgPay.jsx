@@ -2,16 +2,16 @@ import React, { useEffect, useRef, useState } from "react";
 import { TextFade } from "@/components/Animation";
 import { Button, TitleDecor } from "@/components/Component";
 import HeroSvg from "../../assets/svg/bridgPay/hero.svg";
-import HowItWorksSvg from "../../assets/svg/bridgPay/how it works.svg";
-import ConnectedBankingSvg from "../../assets/svg/bridgPay/connected banking.svg";
-import BulkPaymentSvg from "../../assets/svg/bridgPay/bulk payment.svg";
-import SmartBillPaymentSvg from "../../assets/svg/bridgPay/smart bill payment.svg";
-import VendorPaymentSvg from "../../assets/svg/bridgPay/vendor payment.svg";
-import BusinessOwnerIcon from "../../assets/svg/bridgPay/icons/business owners.svg";
-import FinanceTeamIcon from "../../assets/svg/bridgPay/icons/finance teams.svg";
-import OparationManagersIcon from "../../assets/svg/bridgPay/icons/operation managers.svg";
-import ProductTeamsIcon from "../../assets/svg/bridgPay/icons/product teams.svg";
-import CTADecorSvg from "../../assets/svg/cta decor.svg";
+import HowItWorksSvg from "../../assets/svg/bridgPay/how-it-works.svg";
+import ConnectedBankingSvg from "../../assets/svg/bridgPay/connected-banking.svg";
+import BulkPaymentSvg from "../../assets/svg/bridgPay/bulk-payment.svg";
+import SmartBillPaymentSvg from "../../assets/svg/bridgPay/smart-bill-payment.svg";
+import VendorPaymentSvg from "../../assets/svg/bridgPay/vendor-payment.svg";
+import BusinessOwnerIcon from "../../assets/svg/bridgPay/icons/business-owners.svg";
+import FinanceTeamIcon from "../../assets/svg/bridgPay/icons/finance-teams.svg";
+import OparationManagersIcon from "../../assets/svg/bridgPay/icons/operation-managers.svg";
+import ProductTeamsIcon from "../../assets/svg/bridgPay/icons/product-teams.svg";
+import CTADecorSvg from "../../assets/svg/cta-decor.svg";
 import { motion, useScroll, useTransform } from "motion/react";
 
 const BridgPay = () => {
