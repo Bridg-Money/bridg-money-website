@@ -15,7 +15,7 @@ import ProductTeamsIcon from "../../assets/svg/bridgPay/icons/product-teams.svg"
 import SmarterPaymentLinkSvg from "../../assets/svg/bridgCollect/collect-smarter-with-payment-links.svg";
 import PaymentOptionSvg from "../../assets/svg/bridgCollect/Payment-Options.svg";
 import BankSettlementSvg from "../../assets/svg/bridgCollect/Bank-Settlements.svg";
-import ReconcileSvg from "../../assets/svg/bridgCollect/Reconcile.svg";
+import ReconcileSvg from "../../assets/svg/bridgCollect/reconcile.svg";
 import EInvoicingSvg from "../../assets/svg/bridgCollect/e-invoicing.svg";
 import InstantSettlementSvg from "../../assets/svg/bridgCollect/instant-settlements.svg";
 import VerticalCarousel from "@/components/Carousel";
