@@ -4,7 +4,7 @@ import { TextFade } from "@/components/Animation";
 import { Button, TitleDecor } from "@/components/Component";
 import HeroSvg from "../../assets/svg/bridgCollect/hero.svg";
 import CTADecorSvg from "../../assets/svg/cta-decor.svg";
-import CreateInvoiceSvg from "../../assets/svg/bridgCollect/Create-IInvoice.svg";
+import CreateInvoiceSvg from "../../assets/svg/bridgCollect/Create-Invoice.svg";
 import TrackInvoiceAndPaymentSvg from "../../assets/svg/bridgCollect/Track-invoices-and-payments.svg";
 import GetPaidFasterSvg from "../../assets/svg/bridgCollect/Get-paid-faster.svg";
 import AccountingIntegrationSvg from "../../assets/svg/bridgCollect/accounting-Integration.svg";
