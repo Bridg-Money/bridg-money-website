@@ -13,6 +13,7 @@ import OparationManagersIcon from "../../assets/svg/bridgPay/icons/operation-man
 import ProductTeamsIcon from "../../assets/svg/bridgPay/icons/product-teams.svg";
 import CTADecorSvg from "../../assets/svg/cta-decor.svg";
 import { motion, useScroll, useTransform } from "motion/react";
+import MetaData from "@/components/Meta";
 
 const BridgPay = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -141,6 +142,17 @@ const BridgPay = () => {
 
   return (
     <>
+      <MetaData
+        metas={{
+          title:
+            "BridgPay | Instant Payouts, Bulk Payments & Vendor Disbursements",
+          desc: "BridgPay helps businesses automate payouts, payroll, and vendor payments via IMPS, UPI, NEFT, and RTGS. Run bulk payments, reconcile automatically, and manage cashflows in one platform.",
+          ogTitle: "BridgPay – Fast, Reliable Business Payouts at Scale",
+          ogDesc:
+            "Send instant payouts, manage bulk vendor payments, and automate reconciliation with BridgPay. Built for speed, accuracy, and scalable business operations.",
+        }}
+      />
+
       <section className="px-6 pt-30 py-10 sm:px-15 xl:px-25">
         <div className="grid lg:grid-cols-2 xl:gap-x-5 gap-y-5">
           <div>

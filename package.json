@@ -8,12 +8,12 @@
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server",
     "build": "npm run build:client && npm run build:server",
+    "prerender": "node prerender.js",
     "start": "node server.js"
   },
   "dependencies": {
     "vite": "^7.0.4",
     "@vitejs/plugin-react": "^4.6.0",
-    
     "@tailwindcss/vite": "^4.1.11",
     "compression": "^1.8.1",
     "dotenv": "^17.2.3",

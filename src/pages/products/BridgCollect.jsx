@@ -25,6 +25,7 @@ import fullControlSvg3 from "../../assets/svg/bridgCollect/icons/3.svg";
 import fullControlSvg4 from "../../assets/svg/bridgCollect/icons/4.svg";
 import fullControlSvg5 from "../../assets/svg/bridgCollect/icons/5.svg";
 import fullControlSvg6 from "../../assets/svg/bridgCollect/icons/6.svg";
+import MetaData from "@/components/Meta";
 
 const BridgCollect = () => {
   const features = [
@@ -184,6 +185,16 @@ const BridgCollect = () => {
 
   return (
     <>
+      <MetaData
+        metas={{
+          title:
+            "BridgCollect | Online Payment Collection & GST Invoicing Platform",
+          desc: "Collect payments faster with BridgCollect. Generate GST-ready invoices, share payment links, accept UPI, cards & bank transfers, automate reconciliation, and get instant settlements.",
+          ogTitle: "BridgCollect – Smart Online Payment Collection & Invoicing",
+          ogDesc:
+            "BridgCollect helps businesses collect payments effortlessly with GST invoicing, UPI & card payments, automated reconciliation, and fast bank settlements.",
+        }}
+      />
       <section className="px-6 pt-30 py-10 sm:px-15 xl:px-25">
         <div className="grid lg:grid-cols-2 xl:gap-x-5 gap-y-5">
           <div>
@@ -254,7 +265,9 @@ const BridgCollect = () => {
                       <img src={feature.icon} className="h-15 w-15" />
                     </div>
                   ) : null}
-                  <h2 className="text-2xl font-semibold my-3">{feature.heading}</h2>
+                  <h2 className="text-2xl font-semibold my-3">
+                    {feature.heading}
+                  </h2>
                   {feature.text}
                 </div>
                 <div className="flex lg:justify-end">

@@ -5,6 +5,7 @@ import BackendEcoSystemSvg from "../assets/icons/backend-ecosystem.svg";
 import RbiComplaintInfrastructureSvg from "../assets/icons/rbi-complaint-infrastructure.svg";
 import MultiBankNetworkSvg from "../assets/icons/multi-bank-network.svg";
 import OpenLinkSvg from "../assets/icons/open-link.svg";
+import MetaData from "@/components/Meta";
 
 const About = () => {
   const WhyBridgMoney = [
@@ -18,6 +19,15 @@ const About = () => {
   ];
   return (
     <>
+      <MetaData
+        metas={{
+          title: "About bridg.money | Fintech Infrastructure & API Platform",
+          desc: "Learn how bridg.money powers modern fintech operations in India with RBI-compliant infrastructure, modular APIs, and multi-bank connectivity.",
+          ogTitle: "bridg.money – The Backbone of Modern Fintech Operations",
+          ogDesc:
+            "bridg.money enables startups and enterprises to move money securely using scalable, RBI-compliant fintech APIs.",
+        }}
+      />
       <section className=" bg-[#FFFCF5]">
         <div className="px-6 pt-25 py-10 lg:pb-15 sm:px-15 xl:px-30">
           <div className="grid lg:grid-cols-3 gap-y-5">

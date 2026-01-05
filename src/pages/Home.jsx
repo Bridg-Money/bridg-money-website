@@ -275,7 +275,10 @@ const Home = () => {
       <MetaData
         metas={{
           title: "bridg.money | Fast & Secure Digital Payments in India",
-          desc: "Trusted digital payment platform for fast UPI, QR, and seamless transactions across India.",
+          desc: "Trusted digital payment platform for fast UPI, QR, and seamless digital transactions across India. Built on RBI-compliant infrastructure.",
+          ogTitle: "bridg.money – Fast & Secure Digital Payments in India",
+          ogDesc:
+            "Power your business with fast, secure UPI and QR payments using bridg.money’s RBI-compliant fintech infrastructure.",
         }}
       />
       <div className="md:flex justify-center">

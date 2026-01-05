@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
+import MetaData from "@/components/Meta";
 
 const headings = [
   {
@@ -329,20 +330,31 @@ const headings = [
 
 const FAQ = () => {
   return (
-    <div className="contaier px-7 md:px-10 pt-25">
-      <div className="lg:30 xl:px-40 pb-10">
-        <h1 className="font-semibold pl-3 text-center text-3xl md:text-4xl lg:text-5xl py-4">
-          Frequently Asked <span className="text-[#A5EB14]">Questions</span>
-        </h1>
-        <p className="text-center text-lg lg:px-20">
-          Unified answers for onboarding, collections, payouts, reconciliation,
-          escrow, and routing—built for compliance and scale.
-        </p>
+    <>
+      <MetaData
+        metas={{
+          title: "FAQs | bridg.money – Payments, Payouts, APIs & Compliance",
+          desc: "Find answers to common questions about bridg.money APIs, onboarding, payouts, collections, reconciliation, escrow, security, and RBI compliance.",
+          ogTitle: "bridg.money FAQs – Payments, APIs & Fintech Infrastructure",
+          ogDesc:
+            "Everything you need to know about bridg.money’s fintech APIs, compliance, security, payouts, collections, and onboarding.",
+        }}
+      />
+      <div className="contaier px-7 md:px-10 pt-25">
+        <div className="lg:30 xl:px-40 pb-10">
+          <h1 className="font-semibold pl-3 text-center text-3xl md:text-4xl lg:text-5xl py-4">
+            Frequently Asked <span className="text-[#A5EB14]">Questions</span>
+          </h1>
+          <p className="text-center text-lg lg:px-20">
+            Unified answers for onboarding, collections, payouts,
+            reconciliation, escrow, and routing—built for compliance and scale.
+          </p>
+        </div>
+        <section className="relative">
+          <SidebarHighlight />
+        </section>
       </div>
-      <section className="relative">
-        <SidebarHighlight />
-      </section>
-    </div>
+    </>
   );
 };
 
@@ -430,7 +442,9 @@ export function SidebarHighlight() {
       <div className="flex-1 space-y-7 md:px-5 xl:pl-10">
         {headings.map((sec) => (
           <section key={sec.id} id={sec.id} className="scroll-mt-25">
-            <h2 className="text-xl font-[500] text-gray-600 mb-6">{sec.heading}</h2>
+            <h2 className="text-xl font-[500] text-gray-600 mb-6">
+              {sec.heading}
+            </h2>
             {sec.questions?.map((q, i) => (
               <details
                 key={i}

@@ -1,11 +1,11 @@
-import 'dotenv/config';
+import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
 import express from "express";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PORT = process.env.PORT || 5173;
+const PORT = process.env.PORT || 4000;
 
 const isProd = process.env.NODE_ENV === "production";
 
@@ -16,7 +16,7 @@ async function createServer() {
 
   if (!isProd) {
     const { createServer: createViteServer } = await import("vite");
-     vite = await createViteServer({
+    vite = await createViteServer({
       server: { middlewareMode: true },
       appType: "custom",
     });
@@ -39,24 +39,21 @@ async function createServer() {
     const url = req.originalUrl;
 
     try {
-
-      let template = isProd
-        ? fs.readFileSync(
-            path.resolve(__dirname, 'dist/client/index.html'),
-            'utf-8'
-          )
-        : fs.readFileSync(
-            path.resolve(__dirname, 'index.html'),
-            'utf-8'
-          );
+      let template = fs.readFileSync(
+        path.resolve(
+          __dirname,
+          isProd ? "dist/client/index.html" : "index.html"
+        ),
+        "utf-8"
+      );
 
       if (!isProd) {
         template = await vite.transformIndexHtml(url, template);
       }
 
       const { render } = isProd
-      ? await import("./dist/server/entry-server.js")
-        : await vite.ssrLoadModule("/src/entry-server.jsx")
+        ? await import("./dist/server/entry-server.js")
+        : await vite.ssrLoadModule("/src/entry-server.jsx");
 
       const { appHtml, head } = await render(url);
 

@@ -3,6 +3,7 @@ import { ArrowSvg } from "../components/Svg";
 import EmailSvg from "../assets/icons/email.svg";
 import PhoneSvg from "../assets/icons/phone.svg";
 import { toast } from "sonner";
+import MetaData from "@/components/Meta";
 
 const formspreeKey = "xpwlnpyo";
 
@@ -104,7 +105,17 @@ const Contact = () => {
   };
 
   return (
-    <div>
+    <>
+      <MetaData
+        metas={{
+          title: "Contact bridg.money | Talk to Our Fintech Experts",
+          desc: "Get in touch with bridg.money to explore fast, secure, and RBI-compliant fintech solutions. Contact us for demos, partnerships, or integrations.",
+          ogTitle: "Contact bridg.money – Let’s Power Your Fintech Journey",
+          ogDesc:
+            "Reach out to bridg.money for fintech APIs, digital payments, and secure money movement solutions. Our team is ready to help.",
+        }}
+      />
+
       <section className="px-7 md:px-15 lg:px-22 xl:px-30 pt-30 pb-15">
         <div className="grid lg:grid-cols-2 gap-y-10">
           <div className="lg:pr-10 xl:pr-20 order-2 lg:order-1">
@@ -202,11 +213,15 @@ const Contact = () => {
                 </div>
                 <ErrMsg error={error?.interestedProducts} />
               </div>
-              <input type="hidden" name="_subject" value="New Contact from bridg.money"/>
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Contact from bridg.money"
+              />
 
-    <input type="hidden" name="source" value="bridg.money"/>
+              <input type="hidden" name="source" value="bridg.money" />
 
-    <input type="hidden" name="_captcha" value="false"/>
+              <input type="hidden" name="_captcha" value="false" />
               <button
                 type="submit"
                 disabled={processing}
@@ -262,7 +277,7 @@ const Contact = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

@@ -13,6 +13,7 @@ import FinanceTeamIcon from "../../assets/svg/bridgConnect/icons/Finance-Teams.s
 import PlatformAndFintechsIcon from "../../assets/svg/bridgConnect/icons/Platforms&Fintechs.svg";
 import CTADecorSvg from "../../assets/svg/cta-decor.svg";
 import { motion, useScroll, useTransform } from "motion/react";
+import MetaData from "@/components/Meta";
 
 const BridgConnect = () => {
   const [activeIndex, setActiveIndex] = useState(1);
@@ -103,6 +104,16 @@ const BridgConnect = () => {
 
   return (
     <>
+      <MetaData
+        metas={{
+          title:
+            "BridgConnect | Connected Banking & Unified Business Accounts Dashboard",
+          desc: "BridgConnect lets businesses connect all bank accounts in one dashboard. Track balances, manage payments, automate reconciliation, and gain real-time cashflow visibility securely.",
+          ogTitle: "BridgConnect – Connected Banking for Modern Businesses",
+          ogDesc:
+            "Manage multiple bank accounts from one secure dashboard with BridgConnect. View balances, initiate payments, automate reconciliation, and simplify business banking.",
+        }}
+      />
       <section className="px-6 pt-30 py-10 sm:px-15 xl:px-25">
         <div className="grid lg:grid-cols-2 xl:gap-x-5 gap-y-5">
           <div>
@@ -246,7 +257,9 @@ const BridgConnect = () => {
         <div className="bg-[url('./assets/svg/bridgConnect/bankSupport.jpg')] bg-fixed bg-no-repeat bg-cover relative bg-center text-white rounded-2xl py-15 grid grid-cols-2 grid-rows-2 lg:grid-rows-3 p-5">
           <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0)] to-[rgba(0,0,0,0.3)] z-0" />
           <div className="row-start-3 col-span-2 lg:col-span-1 z-1">
-            <h2 className="text-4xl font-semibold">All major banks supported</h2>
+            <h2 className="text-4xl font-semibold">
+              All major banks supported
+            </h2>
             <p className="text-lg">
               Your business doesn’t have to switch banks to go digital. With
               <strong>BridgConnect</strong>, securely link accounts from all

@@ -5,6 +5,7 @@ import TransactionSvg from "../assets/icons/mission-transaction.svg";
 import SuccessSvg from "../assets/icons/mission-success.svg";
 import TickSvg from "../assets/icons/tick.svg";
 import { TextFade } from "@/components/Animation";
+import MetaData from "@/components/Meta";
 
 const Mission = () => {
   const OurMission = [
@@ -31,6 +32,17 @@ const Mission = () => {
   ];
   return (
     <>
+      <MetaData
+        metas={{
+          title:
+            "Mission | bridg.money – Powering the Future of Money Movement",
+          desc: "Discover bridg.money’s mission to enable fast, secure, and scalable money movement through RBI-compliant fintech infrastructure and future-ready APIs.",
+          ogTitle:
+            "bridg.money Mission – Powering the Future of Money Movement",
+          ogDesc:
+            "bridg.money’s mission is to bridge banking and technology with secure, scalable, and innovation-driven financial infrastructure.",
+        }}
+      />
       <section className=" bg-[#FFFCF5]">
         <div className="px-6 pt-25 py-20 sm:px-15 xl:px-25">
           <div className="grid lg:grid-cols-2 gap-x-10 gap-y-5">
@@ -98,7 +110,11 @@ const Mission = () => {
       <section className="mt-15 mb-20 lg:mb-30 px-6 sm:px-15 xl:px-30">
         <div className="grid lg:grid-cols-2 gap-y-10">
           <div className="flex items-center w-full md:px-5   lg:px-10">
-            <img src="/assets/images/mission-why-sec.png" alt="Why We Exist" className="h-2/2" />
+            <img
+              src="/assets/images/mission-why-sec.png"
+              alt="Why We Exist"
+              className="h-2/2"
+            />
           </div>
           <div className="flex items-center">
             <div>
