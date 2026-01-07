@@ -1,8 +1,6 @@
-import "./index.css";
 import { renderToString, renderToStaticMarkup } from "react-dom/server";
-import { createMemoryRouter } from "react-router";
+import { createMemoryRouter, RouterProvider } from "react-router";
 import { routes } from "./routes";
-import App from "./App";
 import { HeadProvider } from "react-head";
 
 export async function render(url) {
@@ -13,7 +11,7 @@ export async function render(url) {
 
   const app = (
     <HeadProvider headTags={headTags}>
-      <App router={router} />
+      <RouterProvider router={router} />
     </HeadProvider>
   );
 

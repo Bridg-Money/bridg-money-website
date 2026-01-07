@@ -14,6 +14,13 @@
     <meta name="robots" content="index, follow" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <style>
+      html {
+        visibility: hidden;
+      }
+    </style>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -38,8 +45,6 @@
       href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
       rel="stylesheet"
     />
-
-    <!--app-head-->
 
     <script type="application/ld+json">
       {
@@ -161,9 +166,11 @@
         ]
       }
     </script>
+
+    <!--app-head-->
   </head>
   <body>
-    <div id="root" style="display: none"><!--ssr-outlet--></div>
+    <div id="root"><!--app-html--></div>
     <script type="module" src="/src/entry-client.jsx"></script>
   </body>
 </html>

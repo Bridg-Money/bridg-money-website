@@ -7,8 +7,7 @@
     "dev": "node server.js",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server",
-    "build": "npm run build:client && npm run build:server",
-    "prerender": "node prerender.js",
+    "build": "npm run build:client && npm run build:server && node prerender.js",
     "start": "node server.js"
   },
   "dependencies": {

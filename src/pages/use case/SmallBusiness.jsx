@@ -141,8 +141,8 @@ const SmallBusiness = () => {
               visibility tailored to your business needs.
             </p>
             <div className="grid sm:grid-cols-2 gap-5">
-              {benefits.map((benefit) => (
-                <div>
+              {benefits.map((benefit,idx) => (
+                <div key={idx}>
                   <div className="h-2.5 w-2.5 rounded-full bg-[#A5EB14] mb-3" />
                   <h2 className="text-xl font-semibold mb-2">{benefit.heading}</h2>
                   <p>{benefit.desc}</p>

@@ -3,25 +3,26 @@ import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 
-export default defineConfig(({ command, ssrBuild }) => {
+export default defineConfig(({ ssrBuild }) => {
   return {
+    base: "/",
     plugins: [react(), tailwindcss()],
-    ssr: {
-      noExternal: ["react-head", "react-router"],
-    },
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
       },
     },
-    build: ssrBuild
-      ? {
-          ssr: "src/entry-server.jsx",
-          outDir: "dist/server",
-        }
-      : {
-          outDir: "dist/client",
-          manifest: true,
-        },
+    define: {
+      __SITE_NAME__: JSON.stringify(process.env.VITE_DOMAIN),
+    },
+    ssr: {
+      noExternal: ssrBuild
+        ? ["react-router", "react-router-dom", "react-head"]
+        : [],
+    },
+    build: {
+      outDir: "dist/client",
+      ssrManifest: true,
+    },
   };
 });

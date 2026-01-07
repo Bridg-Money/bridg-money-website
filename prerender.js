@@ -3,11 +3,6 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const distClient = path.resolve(__dirname, "dist/client");
-
-const template = fs.readFileSync(path.join(distClient, "index.html"), "utf-8");
-
-const { render } = await import("./dist/server/entry-server.js");
 
 const routes = [
   "/",
@@ -19,20 +14,31 @@ const routes = [
   "/faq",
 ];
 
-for (const route of routes) {
-  const { appHtml, head } = await render(route);
+async function prerender() {
+  const template = fs.readFileSync(
+    path.resolve(__dirname, "dist/client/index.html"),
+    "utf-8"
+  );
 
-  const html = template
-    .replace("<!--app-head-->", head)
-    .replace("<!--ssr-outlet-->", appHtml);
+  const { render } = await import("./dist/server/entry-server.js");
 
-  const out =
-    route === "/"
-      ? path.join(distClient, "index.html")
-      : path.join(distClient, route, "index.html");
+  for (const route of routes) {
+    const { appHtml, head } = await render(route);
 
-  fs.mkdirSync(path.dirname(out), { recursive: true });
-  fs.writeFileSync(out, html);
+    const html = template
+      .replace("<!--app-head-->", head)
+      .replace("<!--app-html-->", appHtml);
 
-  console.log(`✅ Prerendered ${route}`);
+    const outputDir =
+      route === "/"
+        ? path.resolve(__dirname, "dist/client")
+        : path.resolve(__dirname, "dist/client", route.slice(1));
+
+    fs.mkdirSync(outputDir, { recursive: true });
+    fs.writeFileSync(path.join(outputDir, "index.html"), html);
+
+    console.log(`✅ Prerendered ${route}`);
+  }
 }
+
+prerender();
