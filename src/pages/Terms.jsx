@@ -1,17 +1,29 @@
 import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
+import MetaData from "@/components/Meta";
 
 const TermsAndCondition = () => {
   return (
-    <div className="contaier px-7 md:px-10">
-      <h1 className="font-bold md:pl-3 text-3xl md:text-4xl pt-5 pb-10">
-        Terms & Conditions
-      </h1>
-      <section>
-        <SidebarHighlight />
-      </section>
-    </div>
+    <>
+      <MetaData
+        metas={{
+          title: "Terms & Conditions | BridgPay",
+          desc: "Read BridgPay’s Terms & Conditions governing access to and use of bridg.money, including eligibility requirements, user obligations, and legal responsibilities.",
+          ogTitle: "BridgPay Terms & Conditions",
+          ogDesc:
+            "These Terms & Conditions outline the rules, eligibility requirements, and legal obligations for accessing and using the BridgPay platform.",
+        }}
+      />
+      <div className="contaier px-7 md:px-10">
+        <h1 className="font-bold md:pl-3 text-3xl md:text-4xl pt-5 pb-10">
+          Terms & Conditions
+        </h1>
+        <section>
+          <SidebarHighlight />
+        </section>
+      </div>
+    </>
   );
 };
 
@@ -686,9 +698,7 @@ export function SidebarHighlight() {
       <div className="flex-1 space-y-7 md:px-5 lg:pl-10 w-screen overflow-hidden">
         {headings.map((sec) => (
           <section key={sec.id} id={sec.id} className="scroll-mt-28">
-            <h2 className="text-2xl font-bold mb-3">
-              {sec.heading}
-            </h2>
+            <h2 className="text-2xl font-bold mb-3">{sec.heading}</h2>
             <section>{sec.desc}</section>
           </section>
         ))}

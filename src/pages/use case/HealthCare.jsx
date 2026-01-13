@@ -2,6 +2,7 @@ import { TextFade } from "@/components/Animation";
 import { Button, TitleDecor } from "@/components/Component";
 import React from "react";
 import { SlidingCard } from "./components/SlidingCard";
+import MetaData from "@/components/Meta";
 
 const HealthCare = () => {
   const cards = [
@@ -57,6 +58,17 @@ const HealthCare = () => {
 
   return (
     <>
+      <MetaData
+        metas={{
+          title:
+            "Payment & Payout Solutions for Healthcare Providers | BridgPay",
+          desc: "BridgPay enables faster, more reliable payments for healthcare providers. Streamline patient collections, insurance inflows, and staff or vendor payouts with greater efficiency.",
+          ogTitle: "Faster Payments for Healthcare Providers",
+          ogDesc:
+            "Improve operational efficiency in healthcare with faster patient collections, insurance settlements, and staff or vendor payments using BridgPay.",
+        }}
+      />
+
       <section className=" bg-[linear-gradient(270deg,rgba(11,11,11,0)_0%,#0B0B0B_100%),url('/assets/images/useCase/hero-section/Healthcare.webp')] bg-cover h-screen bg-center flex items-center">
         <div className="px-6 pt-30 py-20 sm:px-15 xl:px-25">
           <div className="grid lg:grid-cols-2 gap-x-10 gap-y-5">
@@ -124,12 +136,17 @@ const HealthCare = () => {
         <div className="grid lg:grid-cols-2 gap-5 gap-y-10 relative">
           <div className="sm:px-15 flex items-center">
             <div className="relative p-2.5">
-              <img src="/assets/images/useCase/benefit/Healthcare.webp" className="rounded-3xl" />
+              <img
+                src="/assets/images/useCase/benefit/Healthcare.webp"
+                className="rounded-3xl"
+              />
               <div className="bg-[#A5EB14] h-60 sm:h-80 w-full absolute bottom-0 left-0 -z-10 rounded-3xl" />
             </div>
           </div>
           <div>
-            <h2 className="font-semibold text-3xl sm:text-4xl mb-2">Benefits</h2>
+            <h2 className="font-semibold text-3xl sm:text-4xl mb-2">
+              Benefits
+            </h2>
             <p className="mb-10 text-lg">
               Unlock faster payments, automated reconciliation, and real-time
               visibility tailored to your business needs.
@@ -138,7 +155,9 @@ const HealthCare = () => {
               {benefits.map((benefit) => (
                 <div>
                   <div className="h-2.5 w-2.5 rounded-full bg-[#A5EB14] mb-3" />
-                  <h2 className="text-xl font-semibold mb-2">{benefit.heading}</h2>
+                  <h2 className="text-xl font-semibold mb-2">
+                    {benefit.heading}
+                  </h2>
                   <p>{benefit.desc}</p>
                 </div>
               ))}

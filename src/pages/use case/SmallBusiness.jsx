@@ -1,7 +1,8 @@
 import { TextFade } from "@/components/Animation";
-import { Button ,TitleDecor} from "@/components/Component";
+import { Button, TitleDecor } from "@/components/Component";
 import React from "react";
 import { SlidingCard } from "./components/SlidingCard";
+import MetaData from "@/components/Meta";
 
 const SmallBusiness = () => {
   const cards = [
@@ -57,6 +58,16 @@ const SmallBusiness = () => {
 
   return (
     <>
+      <MetaData
+        metas={{
+          title:
+            "Smart Payment & Payout Solutions for Small Businesses | BridgPay",
+          desc: "BridgPay helps small businesses move money smarter with faster vendor payments, automated reconciliation, and better visibility into cash flows—built for growing businesses.",
+          ogTitle: "Smarter Money Movement for Small Businesses",
+          ogDesc:
+            "Reduce payment delays, simplify reconciliations, and gain control over cash flow with BridgPay’s payment and payout solutions for small businesses.",
+        }}
+      />
       <section className=" bg-[linear-gradient(#0B0B0B40,#0B0B0B40),url('/assets/images/useCase/hero-section/small-business.webp')] bg-cover h-screen bg-center flex items-center">
         <div className="px-6 pt-30 py-20 sm:px-15 xl:px-25">
           <div className="grid lg:grid-cols-3 gap-x-10 gap-y-5">
@@ -130,21 +141,28 @@ const SmallBusiness = () => {
         <div className="grid lg:grid-cols-2 gap-5 gap-y-10 relative">
           <div className="sm:px-15 flex items-center">
             <div className="relative p-2.5">
-              <img src="/assets/images/useCase/benefit/small-business.webp" className="rounded-3xl" />
+              <img
+                src="/assets/images/useCase/benefit/small-business.webp"
+                className="rounded-3xl"
+              />
               <div className="bg-[#A5EB14] h-60 sm:h-80 w-full absolute bottom-0 left-0 -z-10 rounded-3xl" />
             </div>
           </div>
           <div>
-            <h2 className="font-semibold text-3xl sm:text-4xl mb-2">Benefits</h2>
+            <h2 className="font-semibold text-3xl sm:text-4xl mb-2">
+              Benefits
+            </h2>
             <p className="mb-10 text-lg">
               Unlock faster payments, automated reconciliation, and real-time
               visibility tailored to your business needs.
             </p>
             <div className="grid sm:grid-cols-2 gap-5">
-              {benefits.map((benefit,idx) => (
+              {benefits.map((benefit, idx) => (
                 <div key={idx}>
                   <div className="h-2.5 w-2.5 rounded-full bg-[#A5EB14] mb-3" />
-                  <h2 className="text-xl font-semibold mb-2">{benefit.heading}</h2>
+                  <h2 className="text-xl font-semibold mb-2">
+                    {benefit.heading}
+                  </h2>
                   <p>{benefit.desc}</p>
                 </div>
               ))}

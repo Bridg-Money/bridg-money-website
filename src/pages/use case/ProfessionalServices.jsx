@@ -2,6 +2,7 @@ import { TextFade } from "@/components/Animation";
 import { Button, TitleDecor } from "@/components/Component";
 import React from "react";
 import { SlidingCard } from "./components/SlidingCard";
+import MetaData from "@/components/Meta";
 
 const ProfessionalServices = () => {
   const cards = [
@@ -57,32 +58,15 @@ const ProfessionalServices = () => {
 
   return (
     <>
-      <section className=" bg-[linear-gradient(270deg,rgba(11,11,11,0)_0%,#0B0B0B_100%),url('/assets/images/useCase/hero-section/Professional-Services.webp')] bg-cover h-screen bg-center flex items-center">
-        <div className="px-6 pt-30 py-20 sm:px-15 xl:px-25">
-          <div className="grid lg:grid-cols-2 gap-x-10 gap-y-5">
-            <div className="flex items-center">
-              <div>
-                <TitleDecor
-                  title="Professional Services"
-                  clr="black"
-                  bgClr="white"
-                />
-                <TextFade>
-                  <h1 className="text-5xl lg:text-[53px] font-semibold leading-15 text-white lg:leading-17 mb-3">
-                    Simplified Payments for Service Firms
-                  </h1>
-                  <p className="my-3 lg:my-4 text-lg text-white">
-                    Law firms, accounting agencies, and consultancies need
-                    efficient ways to collect retainers, manage client payments,
-                    and pay staff/vendors.
-                  </p>
-                  <Button text="Get Started" bgClr="#A5EB14" url="/contact" />
-                </TextFade>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <MetaData
+        metas={{
+          title: "Payment Solutions for Professional Services Firms | BridgPay",
+          desc: "BridgPay simplifies payments for professional services firms. Collect retainers, manage client payments, and pay staff or vendors efficiently with full visibility and control.",
+          ogTitle: "Simplified Payments for Professional Services Firms",
+          ogDesc:
+            "Enable seamless retainer collection, client billing, and vendor payouts for law firms, consultancies, and accounting agencies using BridgPay.",
+        }}
+      />
 
       <section className="bg-[#FCF9F0] px-8 md:px-30 py-15">
         <div className="grid lg:grid-cols-2 gap-x-10 gap-y-5">
@@ -128,12 +112,17 @@ const ProfessionalServices = () => {
         <div className="grid lg:grid-cols-2 gap-5 gap-y-10 relative">
           <div className="sm:px-15 flex items-center">
             <div className="relative p-2.5">
-              <img src="/assets/images/useCase/benefit/Professional-Services.webp" className="rounded-3xl" />
+              <img
+                src="/assets/images/useCase/benefit/Professional-Services.webp"
+                className="rounded-3xl"
+              />
               <div className="bg-[#A5EB14] h-60 sm:h-80 w-full absolute bottom-0 left-0 -z-10 rounded-3xl" />
             </div>
           </div>
           <div>
-            <h2 className="font-semibold text-3xl sm:text-4xl mb-2">Benefits</h2>
+            <h2 className="font-semibold text-3xl sm:text-4xl mb-2">
+              Benefits
+            </h2>
             <p className="mb-10 text-lg">
               Unlock faster payments, automated reconciliation, and real-time
               visibility tailored to your business needs.
@@ -142,7 +131,9 @@ const ProfessionalServices = () => {
               {benefits.map((benefit) => (
                 <div>
                   <div className="h-2.5 w-2.5 rounded-full bg-[#A5EB14] mb-3" />
-                  <h2 className="text-xl font-semibold mb-2">{benefit.heading}</h2>
+                  <h2 className="text-xl font-semibold mb-2">
+                    {benefit.heading}
+                  </h2>
                   <p>{benefit.desc}</p>
                 </div>
               ))}

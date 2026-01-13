@@ -1,3 +1,4 @@
+import MetaData from "@/components/Meta";
 import React from "react";
 import { Outlet, Link } from "react-router";
 
@@ -2195,6 +2196,16 @@ const BlogHome = () => {
 
   return (
     <>
+      <MetaData
+        metas={{
+          title:
+            "BridgPay Blog | Payments, Payouts, Fintech & Business Insights",
+          desc: "Read the BridgPay blog for insights on digital payments, instant payouts, bulk disbursements, fintech trends, compliance, and business finance best practices.",
+          ogTitle: "BridgPay Blog – Payments, Payouts & Fintech Insights",
+          ogDesc:
+            "Explore expert insights on instant payouts, bulk payments, vendor disbursements, and the latest fintech trends from the BridgPay team.",
+        }}
+      />
       <Outlet context={blogs} />
     </>
   );

@@ -2,6 +2,7 @@ import { TextFade } from "@/components/Animation";
 import { Button, TitleDecor } from "@/components/Component";
 import React from "react";
 import { SlidingCard } from "./components/SlidingCard";
+import MetaData from "@/components/Meta";
 
 const ECommerce = () => {
   const cards = [
@@ -57,6 +58,17 @@ const ECommerce = () => {
 
   return (
     <>
+      <MetaData
+        metas={{
+          title:
+            "Payment & Settlement Solutions for Retail & E-commerce | BridgPay",
+          desc: "BridgPay enables fast, reliable settlements for retail and e-commerce businesses. Manage refunds, vendor payouts, and delivery partner payments with speed and accuracy.",
+          ogTitle: "Fast, Reliable Settlements for Retail & E-commerce",
+          ogDesc:
+            "Build trust in online commerce with faster refunds, timely vendor payouts, and instant delivery partner payments using BridgPay.",
+        }}
+      />
+
       <section className=" bg-[linear-gradient(270deg,rgba(11,11,11,0)_0%,#0B0B0B_100%),url('/assets/images/useCase/hero-section/Retail-and-E-commerce.webp')] bg-cover h-screen bg-center flex items-center">
         <div className="px-6 pt-30 py-20 sm:px-15 xl:px-25">
           <div className="grid lg:grid-cols-2 gap-x-10 gap-y-5">
@@ -130,12 +142,17 @@ const ECommerce = () => {
         <div className="grid lg:grid-cols-2 gap-5 gap-y-10 relative">
           <div className="sm:px-15 flex items-center">
             <div className="relative p-2.5">
-              <img src="/assets/images/useCase/benefit/Retail-&-E-commerce.webp" className="rounded-3xl" />
+              <img
+                src="/assets/images/useCase/benefit/Retail-&-E-commerce.webp"
+                className="rounded-3xl"
+              />
               <div className="bg-[#A5EB14] h-60 sm:h-80 w-full absolute bottom-0 left-0 -z-10 rounded-3xl" />
             </div>
           </div>
           <div>
-            <h2 className="font-semibold text-3xl sm:text-4xl mb-2">Benefits</h2>
+            <h2 className="font-semibold text-3xl sm:text-4xl mb-2">
+              Benefits
+            </h2>
             <p className="mb-10 text-lg">
               Unlock faster payments, automated reconciliation, and real-time
               visibility tailored to your business needs.
@@ -144,7 +161,9 @@ const ECommerce = () => {
               {benefits.map((benefit) => (
                 <div>
                   <div className="h-2.5 w-2.5 rounded-full bg-[#A5EB14] mb-3" />
-                  <h2 className="text-xl font-semibold mb-2">{benefit.heading}</h2>
+                  <h2 className="text-xl font-semibold mb-2">
+                    {benefit.heading}
+                  </h2>
                   <p>{benefit.desc}</p>
                 </div>
               ))}

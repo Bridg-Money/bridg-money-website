@@ -59,7 +59,7 @@ export const routes = [
       { path: "hospitality", element: <Hospitality /> },
       { path: "professional-services", element: <ProfessionalServices /> },
       {
-        path: "consultant-and-freelancers",
+        path: "consultants-and-freelancers",
         element: <ConsultantAndFreelancers />,
       },
 

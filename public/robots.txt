@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: 
+Allow: /
 
-Sitemap: https://www.socioplace.com/sitemap.xml
+Sitemap: https://bridg.money/sitemap.xml

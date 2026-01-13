@@ -6,6 +6,7 @@ import ObsessionSvg from "../assets/icons/careers-obsession.svg";
 import TrustSvg from "../assets/icons/careers-trust.svg";
 import { TextFade } from "@/components/Animation";
 import JobIcon from "../assets/svg/careers.svg";
+import MetaData from "@/components/Meta";
 
 const Careers = () => {
   const WhyWork = [
@@ -69,6 +70,16 @@ const Careers = () => {
   ];
   return (
     <>
+      <MetaData
+        metas={{
+          title: "Careers at Bridg Money | Build the Future of Money Movement",
+          desc: "Explore careers at Bridg Money and help build the future of money movement. Join a team solving complex financial challenges with fast, secure, and scalable technology.",
+          ogTitle: "Careers at Bridg Money",
+          ogDesc:
+            "Join Bridg Money and help transform how businesses move money. Work on impactful fintech products with a team driven by innovation and scale.",
+        }}
+      />
+
       <section className="bg-[linear-gradient(#0A0C33CC,#0A0C33CC),url('./assets/images/careersHero.jpg')] bg-cover bg-center">
         <div className="px-6 pt-30 py-20 sm:px-15 xl:px-25">
           <div className="grid lg:grid-cols-2 gap-x-10 gap-y-5">
@@ -155,7 +166,7 @@ const Careers = () => {
                 <div key={idx} className="p-6 mb-5 bg-[#F6FDE8] rounded-2xl">
                   <div className="flex gap-3 items-center mb-2">
                     <div className="bg-[#0A0C33] p-3 rounded-full">
-                    <img src={JobIcon} className="h-5 w-5" />
+                      <img src={JobIcon} className="h-5 w-5" />
                     </div>
                     <p>{data.role}</p>
                   </div>
@@ -163,7 +174,9 @@ const Careers = () => {
                   <p>Location</p>
                   <p className="text-[#1E1E1E]">{data.location}</p>
                   <div className="flex justify-end">
-                    <button className="rounded-3xl border border-gray-200 py-1 px-5">Apply Now</button>
+                    <button className="rounded-3xl border border-gray-200 py-1 px-5">
+                      Apply Now
+                    </button>
                   </div>
                 </div>
               );
