@@ -652,29 +652,29 @@ const Home = () => {
           </section>
 
           <section className="px-6 sm:px-20 my-10 md:my-15 flex justify-center">
-            <div className="bg-[url('/assets/images/ctaHome.jpg')] overflow-hidden bg-fixed bg-no-repeat bg-cover rounded-3xl relative p-5 grid grid-rows-2 md:grid-rows-3 grid-cols-3 items-end">
-              <div className="absolute inset-0 bg-[#0A0C3326] z-0" />
-              <div className="row-start-2 md:row-start-3 z-1 col-span-3 md:col-span-2">
+            <div className="bg-[url('/assets/images/ctaHome.jpg')] overflow-hidden bg-fixed bg-no-repeat bg-cover bg-center rounded-3xl relative p-6 py-12 md:p-12 md:py-15 grid grid-cols-1 md:grid-cols-2 items-end w-full">
+              <div className="absolute inset-0 bg-[#0A0C3326] z-0 rounded-3xl" />
+              <div className="relative z-10 md:col-start-2 flex flex-col justify-end">
                 <TextFade direction="up">
-                  <h2 className="text-lg text-white md:text-5xl font-semibold mb-3">
+                  <h2 className="text-3xl text-white md:text-5xl font-semibold mb-3">
                     Ready to Bridg the Gap?
                   </h2>
-                  <p className="text-lg text-white mb-4">
+                  <p className="text-lg text-white mb-6 max-w-lg">
                     Join thousands of businesses using bridg.money to streamline
                     their financial operations. Start accepting payments and
                     managing payouts in minutes.
                   </p>
                 </TextFade>
-              </div>
 
-              <div className="flex justify-end items-end mb-4 h-full row-start-3 col-span-3 md:col-span-3 z-1">
-                <Button
-                  text="Book a Demo"
-                  clr="#ffffff"
-                  brClr="#ffffff"
-                  arrClr="#ffffff"
-                  url="/contact"
-                />
+                <div className="flex justify-start md:justify-end">
+                  <Button
+                    text="Book a Demo"
+                    clr="#ffffff"
+                    brClr="#ffffff"
+                    arrClr="#ffffff"
+                    url="/contact"
+                  />
+                </div>
               </div>
             </div>
           </section>

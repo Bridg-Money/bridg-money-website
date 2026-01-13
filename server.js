@@ -1,8 +1,11 @@
 import fs from "node:fs/promises";
+import path from "node:path";
 import express from "express";
+import { fileURLToPath } from 'node:url'
 import dotenv from "dotenv";
 dotenv.config();
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const isProd = process.env.NODE_ENV === "production";
 const PORT = process.env.PORT || 4000;
 const BASE = process.env.BASE_URL || "/";
@@ -32,15 +35,12 @@ if (!isProd) {
   vite = await createServer({
     server: { middlewareMode: true },
     appType: "custom",
-    BASE,
   });
   app.use(vite.middlewares);
 }
 
 app.use("*all", async (req, res) => {
   const url = req.originalUrl;
-  if (url === "/favicon.ico") return res.status(204).end();
-
   try {
     let template, render;
     if (!isProd) {
@@ -57,8 +57,6 @@ app.use("*all", async (req, res) => {
     const html = template
       .replace(`<!--app-head-->`, head ?? "")
       .replace(`<!--app-html-->`, appHtml ?? "");
-
-      console.log(head)
 
     res.status(200).set({ "Content-Type": "text/html" }).send(html);
   } catch (e) {
