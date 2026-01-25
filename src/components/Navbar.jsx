@@ -166,7 +166,7 @@ const navbarMenus = [
       },
     ],
   },
-  { title: "Integrations", type: "link", path: "" },
+  { title: "Integrations", type: "link", path: "/integration" },
   {
     title: "Company",
     type: "dropdown",

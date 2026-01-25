@@ -31,6 +31,7 @@ import ConsultantAndFreelancers from "./pages/use case/ConsultantAndFreelancers"
 import BlogHome from "./pages/resources/BlogHome";
 import Blogs from "./pages/resources/Blogs";
 import Blog from "./pages/resources/Blog";
+import Integration from "./pages/integration/integration";
 
 export const routes = [
   {
@@ -64,6 +65,8 @@ export const routes = [
       },
 
       //use case
+
+      { path: "integration", element: <Integration /> },
 
       //company
 
