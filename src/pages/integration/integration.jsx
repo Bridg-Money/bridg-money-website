@@ -415,6 +415,7 @@ const headings = [
           <tbody>
             {[
               { environment: "Production", url: "https://api.bridg.money" },
+              { environment: "Beta", url: "https://api-beta.bridg.money" },
             ].map((d, idx) => (
               <tr key={idx} className="border">
                 <td className="p-2">
