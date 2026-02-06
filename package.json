@@ -4,11 +4,12 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "node server.js",
+    "dev": "vite",
     "build:client": "vite build --outDir dist/client",
     "build:server": "vite build --ssr src/entry-server.jsx --outDir dist/server",
     "build": "npm run build:client && npm run build:server && node prerender.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "deploy": "sh deploy/deploy-to-docker.sh"
   },
   "dependencies": {
     "vite": "^7.0.4",

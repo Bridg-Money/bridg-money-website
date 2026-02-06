@@ -11,6 +11,7 @@ const PORT = process.env.PORT || 4000;
 const BASE = process.env.BASE_URL || "/";
 
 const app = express();
+app.set('trust proxy', true);
 
 let templateHtml;
 if (isProd) {
@@ -69,7 +70,7 @@ app.use("*all", async (req, res) => {
 app.listen(PORT, () =>
   console.log(
     `${
-      isProd ? "✅ Production" : "⚡ Development"
+      isProd ? "Production" : "Development"
     } SSR running at http://localhost:${PORT}`
   )
 );
