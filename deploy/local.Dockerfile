@@ -32,10 +32,6 @@
   COPY --from=builder /app/package*.json ./
   COPY --from=builder /app/node_modules ./node_modules
   
-  # If you use .env files
-  # COPY .env.${ENV} .env
-  
-  EXPOSE 3000
   
   CMD ["node", "server.js"]
   

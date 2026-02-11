@@ -31,7 +31,7 @@ export ENV=${1:-prod}  # dev | beta | prod
 
 # else
   BUILD_CMD="build"
-  SERVER="ubuntu@13.233.132.137"
+  SERVER="ubuntu@13.232.17.210"
   KEY=~/Desktop/Bridg.Money/aws/Keys/BMProd_SK.pem
 # fi
 
