@@ -21,7 +21,17 @@ export const TitleDecor = ({
   );
 };
 
-export const Button = ({ text, clr, brClr, bgClr, arrClr, url, py, px }) => {
+export const Button = ({
+  text,
+  clr,
+  brClr,
+  bgClr,
+  arrClr,
+  url,
+  py,
+  px,
+  onClick,
+}) => {
   const navigate = useNavigate();
   return (
     <button
@@ -36,7 +46,7 @@ export const Button = ({ text, clr, brClr, bgClr, arrClr, url, py, px }) => {
         backgroundColor: bgClr,
         borderColor: brClr,
       }}
-      onClick={() => navigate(url || "")}
+      onClick={() => (onClick ? onClick() : navigate(url || ""))}
     >
       <span className="relative overflow-hidden">
         <span className="block transition-transform duration-300 group-hover:translate-y-[-100%]">

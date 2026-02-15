@@ -523,10 +523,20 @@ const Navbar = () => {
             </div>
 
             <div className="hidden lg:block">
-              <Button
+              {/* <Button
                 text="Get Started"
                 bgClr="#A5EB14"
                 url="/contact"
+                py="py-2"
+                px="px-5.5"
+              /> */}
+              <Button
+                text="Sign In"
+                bgClr="#A5EB14"
+                // url="/contact"
+                onClick={() =>
+                  window.open("https://merchant.bridg.money/signin", "_blank")
+                }
                 py="py-2"
                 px="px-5.5"
               />

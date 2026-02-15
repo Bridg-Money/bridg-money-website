@@ -69,8 +69,28 @@ const Footer = () => {
                   <h6 className="text-[#A5EB14] mb-3 text-lg font-bold">
                     Get Started
                   </h6>
-                  <p className="mb-2 text-gray-200">Login</p>
-                  <p className="mb-2 text-gray-200">SignUp</p>
+                  <p
+                    className="mb-2 text-gray-200 cursor-pointer"
+                    onClick={() => {
+                      window.open(
+                        "https://merchant.bridg.money/signin",
+                        "_blank"
+                      );
+                    }}
+                  >
+                    Login
+                  </p>
+                  <p
+                    className="mb-2 text-gray-200 cursor-pointer"
+                    onClick={() => {
+                      window.open(
+                        "https://merchant.bridg.money/signup",
+                        "_blank"
+                      );
+                    }}
+                  >
+                    SignUp
+                  </p>
                 </div>
                 <h6 className="text-[#A5EB14] mb-3 text-lg font-bold">
                   Product
