@@ -81,9 +81,12 @@ ssh -i "$KEY" "$SERVER" << EOF
 
   echo "📥 Loading Docker image..."
   sudo docker load < $ARCHIVE
-
+  
   echo "♻️ Restarting nginx service..."
-  sudo docker compose -f $COMPOSE_FILE up -d --force-recreate $SERVICE
+  sudo docker compose -f ${COMPOSE_FILE} up -d --force-recreate --no-deps ${SERVICE}
+
+  echo "🧹 Cleaning unused images..."
+  sudo docker image prune -f
 
   echo "🧹 Cleaning up..."
  
