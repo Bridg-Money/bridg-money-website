@@ -5,9 +5,8 @@ set -e
 # CONFIG
 # ==================================================
 UI_IMAGE=bridg-money-website
-NGINX_IMAGE=nginx:latest
 COMPOSE_FILE=bm/docker-compose.yml
-SERVICE=nginx
+SERVICE=site
 
 export ENV=${1:-prod}  # dev | beta | prod
 

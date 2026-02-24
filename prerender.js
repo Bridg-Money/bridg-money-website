@@ -12,6 +12,7 @@ const routes = [
   "/bridg-collect",
   "/contact",
   "/faq",
+  "/integration",
 ];
 
 async function prerender() {
