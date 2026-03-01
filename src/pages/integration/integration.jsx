@@ -1,6 +1,10 @@
 import React, { useRef } from "react";
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
+import { AddBeneficiary, DeleteBeneficiary } from "./Beneficiaries";
+import IpWhitelisting from "./IPWhiteList";
+import Webhook from "./Webhook";
+import { GetPayoutTransaction, InitiatePayout } from "./Payout";
 
 const CodeBlock = ({ fileName, code }) => {
   const codeRef = useRef(null);
@@ -21,7 +25,9 @@ const CodeBlock = ({ fileName, code }) => {
     <>
       <div className="relative bg-gray-50 rounded-xl p-4 font-mono text-sm">
         <div
-          className={`flex items-center ${fileName ? "justify-between border-b pb-3" : "justify-end"} mb-4`}
+          className={`flex items-center ${
+            fileName ? "justify-between border-b pb-3" : "justify-end"
+          } mb-4`}
         >
           <span className="text-xs text-gray-400">{fileName}</span>
 
@@ -37,357 +43,6 @@ const CodeBlock = ({ fileName, code }) => {
           <code ref={codeRef}>{code}</code>
         </pre>
       </div>
-    </>
-  );
-};
-
-const AddVendor = () => {
-  const createVendorBody = [
-    {
-      name: "name",
-      type: "string",
-      required: true,
-      description:
-        "Vendor name. Max 100 characters; alphabets, numbers, spaces, and special characters allowed.",
-      example: "Ravi Traders",
-    },
-    {
-      name: "email",
-      type: "string",
-      required: true,
-      description: "Vendor email in valid format (e.g., ravi@merchant.com).",
-      example: "ravi@merchant.com",
-    },
-    {
-      name: "phoneNumber",
-      type: "string",
-      required: true,
-      description:
-        "Vendor phone number (only digits, 8–12 characters after removing +91).",
-      example: "9876543210",
-    },
-    {
-      name: "accountNumber",
-      type: "string",
-      required: true,
-      description: "Vendor bank account number (9–18 alphanumeric characters).",
-      example: "123456789012",
-    },
-    {
-      name: "ifsc",
-      type: "string",
-      required: true,
-      description:
-        "Bank IFSC (standard format, length 11, first 4 letters = bank code, 5th digit = 0).",
-      example: "HDFC0001234",
-    },
-  ];
-
-  const createVendorResponses = [
-    {
-      status: 201,
-      description: "Vendor created successfully",
-      clr: "text-green-500",
-      body: {
-        success: true,
-        message: "Vendor created successfully",
-        data: { vendorId: "123e4567-e89b-12d3-a456-426614174000" },
-      },
-    },
-    {
-      status: 400,
-      clr: "text-red-400",
-      description: "Duplicate or invalid data",
-      body: { success: false, message: "Duplicate or invalid data" },
-    },
-    {
-      status: 500,
-      clr: "text-red-400",
-      description: "Internal server error",
-      body: { success: false, message: "Something went wrong" },
-    },
-  ];
-
-  return (
-    <>
-      <p className="mb-3">
-        Use this API to add a vendor to your Bridg.Money account by providing
-        the vendor’s name, email, phone number, and bank account details. Before
-        making any payouts or vendor-related transactions, ensure the vendor is
-        successfully added.
-      </p>
-
-      <div className="flex gap-2 border rounded-lg p-2 justify-between mb-10">
-        <div>
-          <span className="bg-blue-100 py-1 p-2 rounded-md text-blue-600 text-[12px]">
-            POST
-          </span>
-          <span> /v1/vendors </span>
-        </div>
-        <button className="text-xs text-gray-500 hover:text-black bg-gray-100 px-2 py-1 rounded-md cursor-pointer">
-          {true ? "Copied" : "Copy code "}
-        </button>
-      </div>
-
-      <div>
-        <div className="flex border-b pb-2 mb-3 justify-between">
-          <p className="font-semibold">Body</p>
-          <span>application/json</span>
-        </div>
-        {createVendorBody.map((field, idx) => (
-          <div
-            key={field.name}
-            className={`${idx !== createVendorBody.length - 1 ? "border-b" : ""} pb-5 mb-4`}
-          >
-            <div className="flex gap-3 items-center mb-3">
-              <span className="text-green-500">{field.name}</span>
-              <span className="text-gray-700 rounded-sm px-3 py-0.5 bg-gray-50">
-                {field.type}
-              </span>
-              {field.required && (
-                <span className="text-red-600 rounded-sm px-3 py-0.5 bg-red-50">
-                  required
-                </span>
-              )}
-            </div>
-            <p className="text-gray-600">{field.description}</p>
-            {field.example && (
-              <p className="text-gray-400">sample - {field.example}</p>
-            )}
-          </div>
-        ))}
-      </div>
-      <div className="pb-3">
-        <div className="flex border-b pb-2 mb-3 justify-between">
-          <p className="font-semibold">Response</p>
-          <span>application/json</span>
-        </div>
-        {createVendorResponses.map((resp) => (
-          <div
-            key={resp.status}
-            className="border rounded-md p-4 mb-4 bg-gray-50"
-          >
-            <div className="flex gap-3 items-center mb-2">
-              <span className={`font-bold ${resp.clr || "text-blue-500"}`}>
-                {resp.status}
-              </span>
-              <span>{resp.description}</span>
-            </div>
-            <pre className="bg-gray-100 p-3 rounded text-sm">
-              {JSON.stringify(resp.body, null, 2)}
-            </pre>
-          </div>
-        ))}
-      </div>
-    </>
-  );
-};
-
-const DeleteVendor = () => {
-  const deleteVendorQueryParams = [
-    {
-      name: "vendorId",
-      type: "string",
-      required: true,
-      description: "Unique ID of the vendor to delete",
-      example: "123e4567-e89b-12d3-a456-426614174000",
-    },
-  ];
-
-  const createVendorResponses = [
-    {
-      status: 200,
-      description: "Vendor deleted successfully",
-      clr: "text-green-500",
-      body: {
-        success: true,
-        message: "Vendor deleted successfully",
-        data: { vendorId: "123e4567-e89b-12d3-a456-426614174000" },
-      },
-    },
-    {
-      status: 404,
-      clr: "text-red-400",
-      description: "Vendor not found",
-      body: { success: false, message: "Vendor not found" },
-    },
-    {
-      status: 500,
-      clr: "text-red-400",
-      description: "Internal server error",
-      body: { success: false, message: "Internal server error" },
-    },
-  ];
-
-  return (
-    <>
-      <p className="mb-3">
-        This operation performs a soft delete, meaning the vendor status is
-        marked as Inactive and the vendor can no longer be used for payouts or
-        transactions.
-      </p>
-
-      <div className="flex gap-2 border rounded-lg p-2 justify-between mb-10">
-        <div>
-          <span className="bg-red-100 py-1 p-2 rounded-md text-red-500 text-[12px]">
-            DELETE
-          </span>
-          <span> /v1/vendors </span>
-        </div>
-        <button className="text-xs text-gray-500 hover:text-black bg-gray-100 px-2 py-1 rounded-md cursor-pointer">
-          {true ? "Copied" : "Copy code "}
-        </button>
-      </div>
-
-      <>
-        <div className="flex border-b pb-2 mb-3 justify-between">
-          <p className="font-semibold">Query Parameters</p>
-        </div>
-        {deleteVendorQueryParams.map((field, idx) => (
-          <div
-            key={field.name}
-            className={`${idx !== deleteVendorQueryParams.length - 1 ? "border-b" : ""} pb-5 mb-4`}
-          >
-            <div className="flex gap-3 items-center mb-3">
-              <span className="text-green-500">{field.name}</span>
-              <span className="text-gray-700 rounded-sm px-3 py-0.5 bg-gray-50">
-                {field.type}
-              </span>
-              {field.required && (
-                <span className="text-red-600 rounded-sm px-3 py-0.5 bg-red-50">
-                  required
-                </span>
-              )}
-            </div>
-            <p className="text-gray-600">{field.description}</p>
-            {field.example && (
-              <p className="text-gray-400">sample - {field.example}</p>
-            )}
-          </div>
-        ))}
-      </>
-
-      <div>
-        <div className="flex border-b pb-2 mb-3 justify-between">
-          <p className="font-semibold">Response</p>
-          <span>application/json</span>
-        </div>
-        {createVendorResponses.map((resp) => (
-          <div
-            key={resp.status}
-            className="border rounded-md p-4 mb-4 bg-gray-50"
-          >
-            <div className="flex gap-3 items-center mb-2">
-              <span className={`font-bold ${resp.clr || "text-blue-500"}`}>
-                {resp.status}
-              </span>
-              <span>{resp.description}</span>
-            </div>
-            <pre className="bg-gray-100 p-3 rounded text-sm">
-              {JSON.stringify(resp.body, null, 2)}
-            </pre>
-          </div>
-        ))}
-      </div>
-    </>
-  );
-};
-
-const IpWhitelisting = () => {
-  return (
-    <>
-      <p className="mb-5">
-        Follow the instructions below to configure IP whitelisting:
-      </p>
-
-      <ul className="list-disc pl-5 mb-4">
-        <li>Log in to your dashboard using your credentials.</li>
-        <li>
-          Navigate to <strong>Settings &gt; IP Whitelist</strong>.
-        </li>
-        <li>You will see the IP Whitelisting page with no IPs added.</li>
-      </ul>
-
-      <img
-        className="px-10 mb-5 border rounded-lg"
-        alt="IP whitelisting initial page"
-        src="/assets/images/integration/ip whitelist/ip init.png"
-      />
-
-      <ul className="list-disc pl-5 mb-4">
-        <li>
-          <strong>IP:</strong> Enter the IP address from which you want to allow
-          API access.
-        </li>
-        <li>
-          Click <strong>Add IP</strong> to whitelist the entered IP address.
-        </li>
-      </ul>
-
-      <img
-        className="px-5 mb-5 border rounded-lg"
-        alt="IP whitelisting setup"
-        src="/assets/images/integration/ip whitelist/ip setup.png"
-      />
-
-      <p>
-        Once IP addresses are added to the whitelist, only requests originating
-        from these IPs will be allowed to access your APIs. This helps ensure
-        that only trusted systems can interact with your account, reducing the
-        risk of unauthorized access. You can add or remove whitelisted IPs at
-        any time, giving you full control over API access.
-      </p>
-    </>
-  );
-};
-
-const Webhook = () => {
-  return (
-    <>
-      <p className="mb-5">
-        Follow the instructions below to configure webhooks for APIs
-      </p>
-
-      <ul className="list-disc pl-5 mb-4">
-        <li>Log in to your dashboard using your credentials.</li>
-        <li>
-          Navigate to <strong>Settings &gt; Webhooks</strong>.
-        </li>
-        <li>Click Add in the Webhooks page.</li>
-      </ul>
-
-      <img
-        className="px-10 mb-5 border rounded-lg"
-        alt="Webhook initial page"
-        src="/assets/images/integration/webhook/webhook init.png"
-      />
-
-      <p>In the Add Webhook popup, enter the following information:</p>
-      <ul className="list-disc pl-5 mb-4">
-        <li>
-          <strong>Webhook URL:</strong> Enter the URL where you want to receive
-          the transfer related notifications.
-        </li>
-        <li>
-          Select a <strong>webhook Type:</strong> Select initiated from the
-          dropdown menu.
-        </li>
-        <li>
-          Click <strong>Add Webhook.</strong>
-        </li>
-      </ul>
-
-      <img
-        className="px-5 pb-10 border-b mb-5 border rounded-lg"
-        alt="Webhook setup"
-        src="/assets/images/integration/webhook/add webhook.png"
-      />
-      <h2 className="text-xl font-semibold mb-3">Webhook events</h2>
-      <p>
-        Payouts webhooks enable you to receive updates about all event-driven
-        activities originating from your account. Below is the list of payouts
-        webhooks:
-      </p>
     </>
   );
 };
@@ -430,37 +85,120 @@ const headings = [
     ),
   },
   {
-    id: "payouts",
-    title: "Payouts",
-    label: "Payouts",
+    id: "beneficiaries",
+    title: "Beneficiaries",
+    label: "Beneficiaries",
     children: [
       {
-        id: "payouts-add-vendor",
-        title: "Add Vendor",
+        id: "add-beneficiary",
+        title: "Add Beneficiary",
         label: (
           <div className="flex gap-3 items-center">
             <span className="bg-blue-100 px-2 py-1 rounded text-[12px] text-blue-600">
               POST
             </span>
-            Add Vendor
+            Add Beneficiary
           </div>
         ),
-        content: <AddVendor />,
+        content: <AddBeneficiary />,
       },
       {
-        id: "payouts-delete-vendor",
-        title: "Delete Vendor",
+        id: "delete-beneficiary",
+        title: "Delete Beneficiary",
         label: (
           <div className="flex gap-3 items-center">
             <span className="bg-red-100 px-2 py-1 rounded text-[12px] text-red-600">
               DELETE
             </span>
-            Delete Vendor
+            Delete Beneficiary
           </div>
         ),
-        content: <DeleteVendor />,
+        content: <DeleteBeneficiary />,
       },
     ],
+  },
+  {
+    id: "payouts",
+    title: "Payouts",
+    label: "Payouts",
+    children: [
+      {
+        id: "initiate-payout-transaction",
+        title: "Initiate Payout Transaction",
+        label: (
+          <div className="flex gap-3 items-center">
+            <span className="bg-blue-100 px-2 py-1 rounded text-[12px] text-blue-600">
+              POST
+            </span>
+            Initiate Payout Transaction
+          </div>
+        ),
+        content: <InitiatePayout />,
+      },
+      {
+        id: "payout-transaction",
+        title: "Payout Transaction",
+        label: (
+          <div className="flex gap-3 items-center">
+            <span className="bg-red-100 px-2 py-1 rounded text-[12px] text-red-600">
+              GET
+            </span>
+            Payout Transaction
+          </div>
+        ),
+        content: <GetPayoutTransaction />,
+      },
+    ],
+  },
+  {
+    id: "payout-testing-accounts",
+    title: "Payout Testing Accounts",
+    label: "Payout Testing Accounts",
+    content: (
+      <div className="space-y-6">
+        {/* SELF BANK */}
+        <div>
+          <h4 className="font-semibold mb-2">SELF BANK TESTING</h4>
+          <div className="bg-gray-50 p-4 rounded-md space-y-2 text-sm">
+            <p>
+              <span className="font-medium">Beneficiary Account Number:</span>{" "}
+              0002053000010425
+            </p>
+            <p>
+              <span className="font-medium">Account Name:</span> BEENA DENNY
+            </p>
+          </div>
+        </div>
+
+        {/* NEFT / OTHER BANK */}
+        <div>
+          <h4 className="font-semibold mb-2">NEFT / OTHER BANK TESTING</h4>
+          <div className="bg-gray-50 p-4 rounded-md space-y-2 text-sm">
+            <p>
+              <span className="font-medium">Beneficiary Account Number:</span>{" "}
+              0574050000000449
+            </p>
+            <p>
+              <span className="font-medium">Beneficiary IFSC:</span> CSBK0000237
+            </p>
+          </div>
+        </div>
+
+        {/* IMPS / OTHER BANK */}
+        <div>
+          <h4 className="font-semibold mb-2">IMPS / OTHER BANK TESTING</h4>
+          <div className="bg-gray-50 p-4 rounded-md space-y-2 text-sm">
+            <p>
+              <span className="font-medium">Beneficiary Account Number:</span>{" "}
+              123456041
+            </p>
+            <p>
+              <span className="font-medium">Beneficiary IFSC:</span> UTIB0000119
+            </p>
+          </div>
+        </div>
+      </div>
+    ),
   },
   {
     id: "authentication-headers",
@@ -497,7 +235,7 @@ const headings = [
     ),
   },
   {
-     id: "timestamp-rules",
+    id: "timestamp-rules",
     title: "Timestamp Rules",
     label: "Timestamp Rules",
     content: (
@@ -514,7 +252,7 @@ const headings = [
     ),
   },
   {
-   id: "canonical-request",
+    id: "canonical-request",
     title: "Canonical Request Format",
     label: "Canonical Request Format",
     content: (
@@ -530,7 +268,7 @@ const headings = [
     content: <p>HMAC-SHA256 with hex encoding</p>,
   },
   {
- id: "generate-signature",
+    id: "generate-signature",
     title: "Generate Request Signature",
     label: "Generate Request Signature",
     content: (
@@ -567,7 +305,7 @@ export function generateApiSignature({
     ),
   },
   {
-  id: "verify-signature",
+    id: "verify-signature",
     title: "Verify Response Signature",
     label: "Verify Response Signature",
     content: (
@@ -604,13 +342,13 @@ export function verifyResponseSignature({
     ),
   },
   {
-  id: "ip-whitelisting",
+    id: "ip-whitelisting",
     title: "IP Whitelisting",
     label: "IP Whitelisting",
     content: <IpWhitelisting />,
   },
   {
-  id: "response-signing",
+    id: "response-signing",
     title: "Response Signing",
     label: "Response Signing",
     content: (
@@ -636,7 +374,7 @@ export function verifyResponseSignature({
     ),
   },
   {
-     id: "error-codes",
+    id: "error-codes",
     title: "Error Codes",
     label: "Error Codes",
     content: (
@@ -667,13 +405,13 @@ export function verifyResponseSignature({
     ),
   },
   {
-       id: "webhook",
+    id: "webhook",
     title: "Webhook",
     label: "Webhook",
     content: <Webhook />,
   },
   {
-        id: "version",
+    id: "version",
     title: "Version",
     label: "Version",
     content: (
@@ -721,14 +459,14 @@ export function SidebarHighlight() {
           if (entry.isIntersecting) setActiveId(entry.target.id);
         });
       },
-      { rootMargin: "-50%  0px -50% 0px" },
+      { rootMargin: "-50%  0px -50% 0px" }
     );
 
-    headings.forEach(sec => {
+    headings.forEach((sec) => {
       const el = document.getElementById(sec.id);
       if (el) observer.observe(el);
 
-      sec.children?.forEach(child => {
+      sec.children?.forEach((child) => {
         const childEl = document.getElementById(child.id);
         if (childEl) observer.observe(childEl);
       });
@@ -738,12 +476,11 @@ export function SidebarHighlight() {
   }, []);
 
   useEffect(() => {
-    const parent = headings.find(h =>
-      h.children?.some(c => c.id === activeId)
+    const parent = headings.find((h) =>
+      h.children?.some((c) => c.id === activeId)
     );
     setOpenId(parent?.id || null);
   }, [activeId]);
-
 
   useEffect(() => {
     if (activeId && itemRefs.current[activeId]) {
@@ -798,9 +535,9 @@ export function SidebarHighlight() {
                     <span className="text-xs">{isOpen ? "−" : "+"}</span>
                   )} */}
                 </a>
-                 {isOpen && sec.children && (
+                {isOpen && sec.children && (
                   <ul className="ml-6 space-y-1">
-                    {sec.children.map(child => (
+                    {sec.children.map((child) => (
                       <li key={child.id} className="my-2.5">
                         <a
                           href={`#${child.id}`}
@@ -833,9 +570,7 @@ export function SidebarHighlight() {
                 id={child.id}
                 className="scroll-mt-28 mt-8"
               >
-                <h3 className="text-xl font-semibold mb-3">
-                  {child.title}
-                </h3>
+                <h3 className="text-xl font-semibold mb-3">{child.title}</h3>
                 {child.content}
               </section>
             ))}
