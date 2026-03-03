@@ -1,0 +1,212 @@
+{
+  "info": {
+    "_postman_id": "e1bd6021-a52b-41f2-a783-8925c43b0614",
+    "name": "Bridg.Money Payout API Integration(HMAC)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "8245079",
+    "_collection_link": "https://go.postman.co/collection/8245079-e1bd6021-a52b-41f2-a783-8925c43b0614?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Add Beneficiary",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Test User\",\n  \"email\": \"test@example.com\",\n  \"phoneNumber\": \"9876543210\",\n  \"accountNumber\": \"123456789012\",\n  \"ifsc\": \"HDFC0001234\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/v1/beneficiaries",
+          "host": ["{{base_url}}"],
+          "path": ["v1", "beneficiaries"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Beneficiary",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/v1/beneficiaries/{{beneficiaryId}}",
+          "host": ["{{base_url}}"],
+          "path": ["v1", "beneficiaries", "{{beneficiaryId}}"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Initiate Payout",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"beneficiaryId\": \"{{beneficiaryId}}\",\n  \"amount\": 100,\n  \"transactionType\": \"I\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/v1/payouts",
+          "host": ["{{base_url}}"],
+          "path": ["v1", "payouts"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Transaction Details",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/v1/payouts/{{payoutTransactionId}}",
+          "host": ["{{base_url}}"],
+          "path": ["v1", "payouts", "{{payoutTransactionId}}"]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "requests": {},
+        "exec": [
+          "// Bridg.Money HMAC Signature Generator (FINAL SAFE VERSION)",
+          "",
+          "const method = pm.request.method.toUpperCase();",
+          "const timestamp = Date.now().toString();",
+          "",
+          "//  Get path + query exactly like req.originalUrl",
+          "const path = pm.request.url.getPathWithQuery();",
+          "",
+          "//  Use raw body exactly as sent",
+          "let body = \"\";",
+          "",
+          "if (![\"GET\", \"DELETE\", \"HEAD\", \"OPTIONS\"].includes(method)) {",
+          "    body = pm.request.body?.raw || \"\";",
+          "}",
+          "",
+          "//  Canonical string (pipe delimiter)",
+          "const canonicalString = [",
+          "    method,",
+          "    path,",
+          "    timestamp,",
+          "    body",
+          "].join(\"|\");",
+          "",
+          "console.log(\"Canonical String:\", canonicalString);",
+          "",
+          "//  Generate HMAC SHA256 (hex)",
+          "const signature = CryptoJS.HmacSHA256(",
+          "    canonicalString,",
+          "    pm.environment.get(\"api_secret\")",
+          ").toString(CryptoJS.enc.Hex);",
+          "",
+          "//  Set headers",
+          "pm.request.headers.upsert({",
+          "    key: \"Content-Type\",",
+          "    value: \"application/json\"",
+          "});",
+          "",
+          "pm.request.headers.upsert({",
+          "    key: \"x-api-key\",",
+          "    value: pm.environment.get(\"api_key\")",
+          "});",
+          "",
+          "pm.request.headers.upsert({",
+          "    key: \"x-timestamp\",",
+          "    value: timestamp",
+          "});",
+          "",
+          "pm.request.headers.upsert({",
+          "    key: \"x-signature\",",
+          "    value: signature",
+          "});",
+          "",
+          "console.log(\"Signature:\", signature);"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          "// Bridg.Money Response Signature Verification",
+          "",
+          "const apiSecret = pm.environment.get(\"api_secret\");",
+          "",
+          "const status = pm.response.code.toString();",
+          "const path = pm.request.url.getPathWithQuery();",
+          "",
+          "const timestamp = pm.response.headers.get(\"x-response-timestamp\");",
+          "const signature = pm.response.headers.get(\"x-response-signature\");",
+          "",
+          "// 1️⃣ Ensure required headers exist",
+          "pm.test(\"Response signature headers present\", function () {",
+          "    pm.expect(timestamp, \"Missing x-response-timestamp\").to.exist;",
+          "    pm.expect(signature, \"Missing x-response-signature\").to.exist;",
+          "});",
+          "",
+          "// Stop further validation if headers missing",
+          "if (!timestamp || !signature) {",
+          "    return;",
+          "}",
+          "",
+          "// 2️⃣ Use EXACT raw response string",
+          "const rawBody = pm.response.text();",
+          "",
+          "// 3️⃣ Build canonical string (must match backend)",
+          "const canonicalString = [",
+          "    status,",
+          "    path,",
+          "    timestamp,",
+          "    rawBody",
+          "].join(\"|\");",
+          "",
+          "console.log(\"Response Canonical:\", canonicalString);",
+          "",
+          "// 4️⃣ Generate expected signature",
+          "const expectedSignature = CryptoJS.HmacSHA256(",
+          "    canonicalString,",
+          "    apiSecret",
+          ").toString(CryptoJS.enc.Hex);",
+          "",
+          "console.log(\"Expected Signature:\", expectedSignature);",
+          "console.log(\"Received Signature:\", signature);",
+          "",
+          "// 5️⃣ Validate signature",
+          "pm.test(\"Response signature is valid\", function () {",
+          "    pm.expect(signature).to.eql(expectedSignature);",
+          "});"
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "beneficiaryId",
+      "value": ""
+    },
+    {
+      "key": "payoutTransactionId",
+      "value": ""
+    }
+  ]
+}

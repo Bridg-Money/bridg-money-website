@@ -214,7 +214,7 @@ const headings = [
 
           {/* Optional: Download JSON */}
           <a
-            href="/downloads/bridg-money-payout.postman_collection.json"
+            href="/assets/bridg-money-payout.postman_collection.json"
             download
             className="text-blue-600 underline text-sm"
           >
