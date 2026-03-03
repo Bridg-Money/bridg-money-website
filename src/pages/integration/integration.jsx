@@ -5,8 +5,11 @@ import { AddBeneficiary, DeleteBeneficiary } from "./Beneficiaries";
 import IpWhitelisting from "./IPWhiteList";
 import Webhook from "./Webhook";
 import { GetPayoutTransaction, InitiatePayout } from "./Payout";
+import { PayoutApiCallBlock } from "./PayoutApiCallBlock";
+import { GenerateSignatureMultiLang } from "./GenerateSignatureMultiLang";
+import { VerifySignatureMultiLang } from "./VerifySignatureMultiLang";
 
-const CodeBlock = ({ fileName, code }) => {
+export const CodeBlock = ({ fileName, code }) => {
   const codeRef = useRef(null);
   const [copied, setCopied] = useState(false);
 
@@ -151,6 +154,83 @@ const headings = [
     ],
   },
   {
+    id: "postman-collection",
+    title: "Postman Collection",
+    label: "Postman Collection",
+    content: (
+      <div className="space-y-4">
+        <p>
+          Use the official Postman collection to quickly test and integrate
+          Bridg.Money Payout APIs.
+        </p>
+
+        <div className="bg-gray-50 border rounded-lg p-4 mb-4 text-sm text-gray-700">
+          <p className="font-semibold mb-2">Postman Setup Instructions</p>
+
+          <ul className="list-disc ml-5 space-y-1">
+            <li>
+              Set{" "}
+              <span className="font-mono bg-gray-200 px-1 rounded">
+                base_url
+              </span>{" "}
+              in environment Variables.
+            </li>
+            <li>
+              Set{" "}
+              <span className="font-mono bg-gray-200 px-1 rounded">
+                api_key
+              </span>{" "}
+              in environment Variables.
+            </li>
+            <li>
+              Set{" "}
+              <span className="font-mono bg-gray-200 px-1 rounded">
+                api_secret
+              </span>{" "}
+              in environment Variables.
+            </li>
+            <li>
+              All request URLs use{" "}
+              <span className="font-mono bg-gray-200 px-1 rounded">
+                {`{{base_url}}`}
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div className="flex items-center gap-4">
+          {/* Run in Postman Button */}
+          <a
+            href="https://www.postman.com/warped-equinox-340815/bridg-money-payout-api-integration/collection/8245079-e1bd6021-a52b-41f2-a783-8925c43b0614?action=share&source=copy-link&creator=8245079"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src="https://run.pstmn.io/button.svg"
+              alt="Run in Postman"
+              className="h-10"
+            />
+          </a>
+
+          {/* Optional: Download JSON */}
+          <a
+            href="/downloads/bridg-money-payout.postman_collection.json"
+            download
+            className="text-blue-600 underline text-sm"
+          >
+            Download Postman Collection (v1)
+          </a>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: "payout-api-call-dynamic",
+    title: "Payout API Call with Signature",
+    label: "Payout API Call (Language Based)",
+    content: <PayoutApiCallBlock />,
+  },
+  {
     id: "payout-testing-accounts",
     title: "Payout Testing Accounts",
     label: "Payout Testing Accounts",
@@ -271,75 +351,78 @@ const headings = [
     id: "generate-signature",
     title: "Generate Request Signature",
     label: "Generate Request Signature",
-    content: (
-      <CodeBlock
-        fileName="generateApiSignature.js"
-        code={`import crypto from "crypto";
+    content: <GenerateSignatureMultiLang />,
 
-export function generateApiSignature({
-  method,
-  path,
-  body,
-  apiSecret,
-}) {
-  const timestamp = Date.now().toString();
+    //   content: (
+    //     <CodeBlock
+    //       fileName="generateApiSignature.js"
+    //       code={`import crypto from "crypto";
 
-  const canonicalString = [
-    method.toUpperCase(),
-    path,
-    timestamp,
-    body ? JSON.stringify(body) : "",
-  ].join("\\n");
+    // export function generateApiSignature({
+    //   method,
+    //   path,
+    //   body,
+    //   apiSecret,
+    // }) {
+    //   const timestamp = Date.now().toString();
 
-  const signature = crypto
-    .createHmac("sha256", apiSecret)
-    .update(canonicalString)
-    .digest("hex");
+    //   const canonicalString = [
+    //     method.toUpperCase(),
+    //     path,
+    //     timestamp,
+    //     body ? JSON.stringify(body) : "",
+    //   ].join("\\n");
 
-  return {
-    timestamp,
-    signature,
-  };
-}`}
-      />
-    ),
+    //   const signature = crypto
+    //     .createHmac("sha256", apiSecret)
+    //     .update(canonicalString)
+    //     .digest("hex");
+
+    //   return {
+    //     timestamp,
+    //     signature,
+    //   };
+    // }`}
+    //     />
+    //   ),
   },
   {
     id: "verify-signature",
     title: "Verify Response Signature",
     label: "Verify Response Signature",
-    content: (
-      <CodeBlock
-        fileName="verifyResponseSignature.js"
-        code={`import crypto from "crypto"; 
+    content: <VerifySignatureMultiLang />,
+    //     content: (
+    //       <CodeBlock
+    //         fileName="verifyResponseSignature.js"
+    //         code={`import crypto from "crypto";
 
-export function verifyResponseSignature({ 
-  status, 
-  path, 
-  timestamp, 
-  body, 
-  signature, 
-  apiSecret, 
-}) { 
-  const canonicalString = [ 
-    status, 
-    path, 
-    timestamp, 
-    JSON.stringify(body), 
-  ].join("|"); 
- 
-  const expectedSignature = crypto 
-    .createHmac("sha256", apiSecret) 
-    .update(canonicalString) 
-    .digest("hex"); 
- 
-  return crypto.timingSafeEqual( 
-    Buffer.from(signature, "hex"), 
-    Buffer.from(expectedSignature, "hex") 
-  ); 
-} `}
-      />
-    ),
+    // export function verifyResponseSignature({
+    //   status,
+    //   path,
+    //   timestamp,
+    //   body,
+    //   signature,
+    //   apiSecret,
+    // }) {
+    //   const canonicalString = [
+    //     status,
+    //     path,
+    //     timestamp,
+    //     JSON.stringify(body),
+    //   ].join("|");
+
+    //   const expectedSignature = crypto
+    //     .createHmac("sha256", apiSecret)
+    //     .update(canonicalString)
+    //     .digest("hex");
+
+    //   return crypto.timingSafeEqual(
+    //     Buffer.from(signature, "hex"),
+    //     Buffer.from(expectedSignature, "hex")
+    //   );
+    // } `}
+    //       />
+    //     ),
   },
   {
     id: "ip-whitelisting",
@@ -387,8 +470,19 @@ export function verifyResponseSignature({
         </thead>
         <tbody>
           {[
-            { statusCode: 401, desc: "Missing or expired authentication" },
-            { statusCode: 403, desc: "Invalid API key, signature, or IP" },
+            { statusCode: 200, desc: "Request successful" },
+            {
+              statusCode: 400,
+              desc: "Invalid request format or malformed signature",
+            },
+            {
+              statusCode: 401,
+              desc: "Missing authentication headers or request expired",
+            },
+            {
+              statusCode: 403,
+              desc: "Invalid API key, signature, or IP not whitelisted",
+            },
             { statusCode: 500, desc: "Internal server error" },
           ].map((d, idx) => (
             <tr key={idx} className="border">
