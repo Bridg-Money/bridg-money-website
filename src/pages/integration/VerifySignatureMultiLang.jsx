@@ -6,25 +6,22 @@ export const VerifySignatureMultiLang = () => {
   const [language, setLang] = useState(languages[0]);
 
   const codeSnippets = {
-    typescript: `/**
+    typescript: `
+/**
  * Verifies response signature from Bridg.Money API
  * Canonical format:
- * STATUS | PATH | TIMESTAMP | RAW_RESPONSE_STRING
+ * TIMESTAMP | RAW_RESPONSE_STRING
  */
 
 import crypto from "crypto";
 
 export function verifyResponseSignature({
-  status,
-  path,
   timestamp,
   rawBody, // MUST be raw response string
   signature,
   apiSecret,
 }) {
   const canonicalString = [
-    status,
-    path,
     timestamp,
     rawBody
   ].join("|");
@@ -43,10 +40,11 @@ export function verifyResponseSignature({
 }
 `,
 
-    java: `/**
+    java: `
+/**
  * Verifies response signature from Bridg.Money API
  * Canonical format:
- * STATUS | PATH | TIMESTAMP | RAW_RESPONSE_STRING
+ * TIMESTAMP | RAW_RESPONSE_STRING
  */
 
 import javax.crypto.Mac;
@@ -56,28 +54,28 @@ import java.nio.charset.StandardCharsets;
 public class ResponseVerifier {
 
   public static boolean verifySignature(
-      String status,
-      String path,
       String timestamp,
-      String rawBody, // MUST be exact response string
+      String rawBody,
       String signature,
       String apiSecret
   ) throws Exception {
 
     String canonicalString = String.join("|",
-        status,
-        path,
         timestamp,
         rawBody
     );
 
     Mac mac = Mac.getInstance("HmacSHA256");
+
     SecretKeySpec secretKey =
         new SecretKeySpec(apiSecret.getBytes(StandardCharsets.UTF_8), "HmacSHA256");
 
     mac.init(secretKey);
 
-    byte[] hash = mac.doFinal(canonicalString.getBytes(StandardCharsets.UTF_8));
+    byte[] hash = mac.doFinal(
+        canonicalString.getBytes(StandardCharsets.UTF_8)
+    );
+
     String expectedSignature = bytesToHex(hash);
 
     return constantTimeEquals(expectedSignature, signature);
@@ -85,39 +83,42 @@ public class ResponseVerifier {
 
   private static boolean constantTimeEquals(String a, String b) {
     if (a.length() != b.length()) return false;
+
     int result = 0;
     for (int i = 0; i < a.length(); i++) {
       result |= a.charAt(i) ^ b.charAt(i);
     }
+
     return result == 0;
   }
 
   private static String bytesToHex(byte[] bytes) {
     StringBuilder sb = new StringBuilder();
+
     for (byte b : bytes) {
       sb.append(String.format("%02x", b));
     }
+
     return sb.toString();
   }
 }
 `,
 
-    python: `"""
+    python: `
+"""
 Verifies response signature from Bridg.Money API
 Canonical format:
-STATUS | PATH | TIMESTAMP | RAW_RESPONSE_STRING
+TIMESTAMP | RAW_RESPONSE_STRING
 """
 
 import hmac
 import hashlib
 
-def verify_signature(status, path, timestamp, raw_body, signature, api_secret):
+def verify_signature(timestamp, raw_body, signature, api_secret):
 
     canonical_string = "|".join([
-        str(status),
-        path,
         timestamp,
-        raw_body  # MUST be exact raw response string
+        raw_body
     ])
 
     expected_signature = hmac.new(
@@ -129,36 +130,33 @@ def verify_signature(status, path, timestamp, raw_body, signature, api_secret):
     return hmac.compare_digest(signature, expected_signature)
 `,
 
-    php: `<?php
+    php: `
+<?php
 /**
  * Verifies response signature from Bridg.Money API
  * Canonical format:
- * STATUS | PATH | TIMESTAMP | RAW_RESPONSE_STRING
+ * TIMESTAMP | RAW_RESPONSE_STRING
  */
 
 function verifySignature(
-    $status,
-    $path,
-    $timestamp,
-    $rawBody, // MUST be exact response string
-    $signature,
-    $apiSecret
+  $timestamp,
+  $rawBody,
+  $signature,
+  $apiSecret
 ) {
 
-    $canonicalString = implode('|', [
-        $status,
-        $path,
-        $timestamp,
-        $rawBody
-    ]);
+  $canonicalString = implode('|', [
+    $timestamp,
+    $rawBody
+  ]);
 
-    $expectedSignature = hash_hmac(
-        'sha256',
-        $canonicalString,
-        $apiSecret
-    );
+  $expectedSignature = hash_hmac(
+    'sha256',
+    $canonicalString,
+    $apiSecret
+  );
 
-    return hash_equals($expectedSignature, $signature);
+  return hash_equals($expectedSignature, $signature);
 }
 ?>
 `,
@@ -168,13 +166,14 @@ function verifySignature(
     <div className="space-y-6">
       <div className="text-sm text-gray-600 bg-gray-50 p-4 rounded-md">
         <p className="font-semibold mb-2">Response Signature Verification</p>
-        <p className="font-mono text-xs">
-          STATUS | PATH | TIMESTAMP | RAW_RESPONSE_STRING
-        </p>
+
+        <p className="font-mono text-xs">TIMESTAMP | RAW_RESPONSE_STRING</p>
+
         <p className="mt-2">
-          • Delimiter must be pipe (<strong>|</strong>) • Use the exact raw
-          response body (do NOT re-stringify JSON) • Signature algorithm:{" "}
-          <strong>HMAC-SHA256 (hex)</strong>• Use constant-time comparison
+          • Delimiter must be pipe (<strong>|</strong>) <br />
+          • Use the exact raw response body (do NOT re-stringify JSON) <br />•
+          Signature algorithm: <strong>HMAC-SHA256 (hex)</strong> <br />• Use
+          constant-time comparison
         </p>
       </div>
 
@@ -183,11 +182,12 @@ function verifySignature(
           <button
             key={l}
             onClick={() => setLang(l)}
-            className={`px-3 py-1 rounded-md ${
-              language === l
+            className={
+              "px-3 py-1 rounded-md " +
+              (language === l
                 ? "bg-[#96DC03] text-black"
-                : "bg-gray-100 text-gray-600"
-            }`}
+                : "bg-gray-100 text-gray-600")
+            }
           >
             {l.toUpperCase()}
           </button>

@@ -152,37 +152,31 @@
           "",
           "const apiSecret = pm.environment.get(\"api_secret\");",
           "",
-          "const status = pm.response.code.toString();",
-          "const path = pm.request.url.getPathWithQuery();",
-          "",
           "const timestamp = pm.response.headers.get(\"x-response-timestamp\");",
           "const signature = pm.response.headers.get(\"x-response-signature\");",
           "",
-          "// 1️⃣ Ensure required headers exist",
+          "// Ensure headers exist",
           "pm.test(\"Response signature headers present\", function () {",
           "    pm.expect(timestamp, \"Missing x-response-timestamp\").to.exist;",
           "    pm.expect(signature, \"Missing x-response-signature\").to.exist;",
           "});",
           "",
-          "// Stop further validation if headers missing",
           "if (!timestamp || !signature) {",
           "    return;",
           "}",
           "",
-          "// 2️⃣ Use EXACT raw response string",
+          "// Use exact raw response",
           "const rawBody = pm.response.text();",
           "",
-          "// 3️⃣ Build canonical string (must match backend)",
+          "// Canonical string (MUST match backend)",
           "const canonicalString = [",
-          "    status,",
-          "    path,",
           "    timestamp,",
           "    rawBody",
           "].join(\"|\");",
           "",
           "console.log(\"Response Canonical:\", canonicalString);",
           "",
-          "// 4️⃣ Generate expected signature",
+          "// Generate expected signature",
           "const expectedSignature = CryptoJS.HmacSHA256(",
           "    canonicalString,",
           "    apiSecret",
@@ -191,22 +185,19 @@
           "console.log(\"Expected Signature:\", expectedSignature);",
           "console.log(\"Received Signature:\", signature);",
           "",
-          "// 5️⃣ Validate signature",
+          "// Validate",
           "pm.test(\"Response signature is valid\", function () {",
           "    pm.expect(signature).to.eql(expectedSignature);",
+          "});",
+          "",
+          "const now = Date.now();",
+          "const diff = Math.abs(now - Number(timestamp));",
+          "",
+          "pm.test(\"Response timestamp within 5 minutes\", function () {",
+          "    pm.expect(diff).to.be.below(300000);",
           "});"
         ]
       }
-    }
-  ],
-  "variable": [
-    {
-      "key": "beneficiaryId",
-      "value": ""
-    },
-    {
-      "key": "payoutTransactionId",
-      "value": ""
     }
   ]
 }
