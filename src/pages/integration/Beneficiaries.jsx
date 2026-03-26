@@ -45,30 +45,53 @@ const AddBeneficiary = () => {
       description: "Beneficiary created successfully",
       clr: "text-green-500",
       body: {
-        success: true,
-        message: "Beneficiary created successfully",
+        status: 200,
         data: {
           beneficiaryId: "123e4567-e89b-12d3-a456-426614174000",
           beneficiaryCode: "BEN000123",
         },
+        message: "Beneficiary created successfully",
+        meta: null,
+      },
+    },
+    {
+      status: 409,
+      clr: "text-yellow-500",
+      description: "Beneficiary already exists",
+      body: {
+        status: 409,
+        data: {
+          beneficiaryId: "50a97363-71bb-47b1-af7f-a55444684a58",
+          name: "Test User",
+          email: "test@example.com",
+          phoneNumber: "9876543210",
+          accountNumber: "123456789012",
+          ifsc: "HDFC0001234",
+        },
+        message: "Beneficiary already exists",
+        meta: null,
       },
     },
     {
       status: 400,
       clr: "text-red-400",
-      description: "Duplicate active beneficiary or invalid data",
+      description: "Validation error or invalid data",
       body: {
-        success: false,
-        message: "Duplicate active beneficiary account",
+        status: 400,
+        data: null,
+        message: "Failed to add beneficiary",
+        meta: null,
       },
     },
     {
       status: 401,
       clr: "text-red-400",
-      description: "Unauthorized",
+      description: "Missing headers, expired timestamp, or invalid signature",
       body: {
-        success: false,
-        message: "Unauthorized",
+        status: 401,
+        data: null,
+        message: "Missing API authentication headers",
+        meta: null,
       },
     },
     {
@@ -76,8 +99,10 @@ const AddBeneficiary = () => {
       clr: "text-red-400",
       description: "Internal server error",
       body: {
-        success: false,
+        status: 500,
+        data: null,
         message: "Something went wrong",
+        meta: null,
       },
     },
   ];
@@ -86,8 +111,15 @@ const AddBeneficiary = () => {
     <>
       <p className="mb-3">
         Use this API to add a beneficiary to your Bridg.Money account by
-        providing the beneficiary’s name, phone number, and bank account
+        providing the beneficiary's name, phone number, and bank account
         details. Only active beneficiaries can receive payouts.
+        <br />
+        <br />
+        ⚠️ If the beneficiary already exists, the API returns <code>
+          409
+        </code>{" "}
+        with the existing beneficiary's details — no duplicate is created. Use
+        the returned <code>beneficiaryId</code> to initiate payouts.
       </p>
 
       <div className="flex gap-2 border rounded-lg p-2 justify-between mb-10">
@@ -162,7 +194,7 @@ const DeleteBeneficiary = () => {
       name: "beneficiaryId",
       type: "string",
       required: true,
-      description: "Unique ID of the beneficiary to deactivate",
+      description: "Unique ID of the beneficiary to deactivate.",
       example: "123e4567-e89b-12d3-a456-426614174000",
     },
   ];
@@ -173,12 +205,13 @@ const DeleteBeneficiary = () => {
       description: "Beneficiary deleted successfully",
       clr: "text-green-500",
       body: {
-        success: true,
-        message: "Beneficiary deleted successfully",
+        status: 200,
         data: {
           beneficiaryId: "123e4567-e89b-12d3-a456-426614174000",
           status: 0,
         },
+        message: "Beneficiary deleted successfully",
+        meta: null,
       },
     },
     {
@@ -186,8 +219,21 @@ const DeleteBeneficiary = () => {
       clr: "text-red-400",
       description: "Beneficiary not found",
       body: {
-        success: false,
+        status: 404,
+        data: null,
         message: "Beneficiary not found",
+        meta: null,
+      },
+    },
+    {
+      status: 401,
+      clr: "text-red-400",
+      description: "Missing headers, expired timestamp, or invalid signature",
+      body: {
+        status: 401,
+        data: null,
+        message: "Missing API authentication headers",
+        meta: null,
       },
     },
     {
@@ -195,8 +241,10 @@ const DeleteBeneficiary = () => {
       clr: "text-red-400",
       description: "Internal server error",
       body: {
-        success: false,
+        status: 500,
+        data: null,
         message: "Internal server error",
+        meta: null,
       },
     },
   ];
@@ -205,8 +253,8 @@ const DeleteBeneficiary = () => {
     <>
       <p className="mb-3">
         This operation performs a soft delete by setting the beneficiary status
-        to Inactive (0). Inactive beneficiaries cannot receive payouts, but
-        historical payout records remain preserved.
+        to Inactive (<code>0</code>). Inactive beneficiaries cannot receive
+        payouts, but historical payout records remain preserved.
       </p>
 
       <div className="flex gap-2 border rounded-lg p-2 justify-between mb-10">

@@ -29,34 +29,38 @@ const InitiatePayout = () => {
   const payoutResponses = [
     {
       status: 200,
-      description: "Payout processed successfully or currently in progress",
+      description: "Payout accepted and currently in progress",
       clr: "text-green-500",
       body: {
-        success: true,
-        message: "Payout initiated and is being processed",
+        status: 200,
         data: {
-          payoutTransactionId: "e4df91c1-4180-43d7-8de4-6e0a20a86db9",
-          amount: "1000.00",
-          status: "InProgress",
-          commissionAmount: "10.00",
-          commissionGSTAmount: "1.80",
+          payoutTransactionId: "ca4bac52-2800-11f1-8a8e-0a0c26167b3f",
+          transactionId: "BMPT2026032500001",
+          amount: 100,
+          status: 4,
+          commissionAmount: 0.75,
+          commissionGSTAmount: 0.14,
         },
+        message: "Payout initiated and is being processed",
+        meta: null,
       },
     },
     {
       status: 500,
-      description: "Payout failed",
+      description: "Payout failed at bank",
       clr: "text-red-400",
       body: {
-        success: true,
-        message: "Payout failed",
+        status: 500,
         data: {
-          payoutTransactionId: "e4df91c1-4180-43d7-8de4-6e0a20a86db9",
-          amount: "1000.00",
-          status: "Failed",
-          commissionAmount: "10.00",
-          commissionGSTAmount: "1.80",
+          payoutTransactionId: "ca4bac52-2800-11f1-8a8e-0a0c26167b3f",
+          transactionId: "BMPT2026032500001",
+          amount: 100,
+          status: 12,
+          commissionAmount: 0.75,
+          commissionGSTAmount: 0.14,
         },
+        message: "Payout failed",
+        meta: null,
       },
     },
     {
@@ -65,17 +69,21 @@ const InitiatePayout = () => {
         "Validation error, insufficient balance, limit exceeded, or configuration issue",
       clr: "text-red-400",
       body: {
-        success: false,
+        status: 400,
+        data: null,
         message: "Failed to initiate payout",
+        meta: null,
       },
     },
     {
       status: 401,
-      description: "Unauthorized",
+      description: "Missing headers, expired timestamp, or invalid signature",
       clr: "text-red-400",
       body: {
-        success: false,
-        message: "Unauthorized",
+        status: 401,
+        data: null,
+        message: "Missing API authentication headers",
+        meta: null,
       },
     },
   ];
@@ -83,8 +91,8 @@ const InitiatePayout = () => {
   return (
     <>
       <p className="mb-3">
-        Initiates a payout transfer to a vendor. Wallet balance is validated and
-        debited during processing.
+        Initiates a payout transfer to a beneficiary. Wallet balance is
+        validated and debited during processing.
         <br />
         <br />
         <strong>Processing Flow:</strong>
@@ -100,7 +108,9 @@ const InitiatePayout = () => {
         • Step 5: Final status persisted
         <br />
         <br />
-        ⚠️ Final payout status should be verified using the Get Payout API.
+        ⚠️ The 200 response confirms the payout was accepted for processing
+        (status <code>4</code> — InProgress). Final status must be verified
+        using the Get Payout API.
       </p>
 
       <div className="flex gap-2 border rounded-lg p-2 justify-between mb-10">
@@ -186,6 +196,39 @@ const InitiatePayout = () => {
           </li>
         </ul>
       </div>
+
+      {/* STATUS CODES */}
+      <div className="mt-6">
+        <div className="flex border-b pb-2 mb-3">
+          <p className="font-semibold">Payout Status Codes</p>
+        </div>
+        <table className="w-full text-sm text-gray-600 border-collapse">
+          <thead>
+            <tr className="border-b">
+              <th className="text-left py-2 pr-6 font-semibold text-gray-700">
+                Code
+              </th>
+              <th className="text-left py-2 font-semibold text-gray-700">
+                Status
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {[
+              { code: 2, label: "Initiated" },
+              { code: 4, label: "InProgress" },
+              { code: 3, label: "Pending" },
+              { code: 11, label: "Successful" },
+              { code: 12, label: "Failed" },
+            ].map((s) => (
+              <tr key={s.code} className="border-b last:border-0">
+                <td className="py-2 pr-6 font-mono">{s.code}</td>
+                <td className="py-2">{s.label}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };
@@ -197,7 +240,7 @@ const GetPayoutTransaction = () => {
       type: "string",
       required: true,
       description: "Unique payout transaction identifier (UUID).",
-      example: "5f8f75b4-8bc6-4c08-b90c-f90a34df2ec9",
+      example: "ca4bac52-2800-11f1-8a8e-0a0c26167b3f",
     },
   ];
 
@@ -207,10 +250,11 @@ const GetPayoutTransaction = () => {
       description: "Payout details retrieved successfully",
       clr: "text-green-500",
       body: {
-        success: true,
+        status: 200,
         data: [
           {
-            payoutTransactionId: "5f8f75b4-8bc6-4c08-b90c-f90a34df2ec9",
+            payoutTransactionId: "ca4bac52-2800-11f1-8a8e-0a0c26167b3f",
+            transactionId: "BMPT2026032500001",
             businessId: "123e4567-e89b-12d3-a456-426614174000",
             merchantId: "123e4567-e89b-12d3-a456-426614174999",
             vendorId: "123e4567-e89b-12d3-a456-426614174001",
@@ -220,17 +264,19 @@ const GetPayoutTransaction = () => {
             accountNumber: "123456789012",
             transactionType: "N",
             transactionTypeName: "NEFT",
-            amount: "1000.00",
-            commissionAmount: "10.00",
-            commissionGSTAmount: "1.80",
-            status: "Successful",
+            amount: 1000,
+            commissionAmount: 0.75,
+            commissionGSTAmount: 0.14,
+            status: 11,
             responseCode: "100",
             responseMessage: "Transfer completed",
             transactionReference: "BANKREF12345",
-            createdDate: "2025-01-10T10:30:00Z",
-            updatedDate: "2025-01-10T10:31:00Z",
+            createdDate: "2026-03-25T10:30:00Z",
+            updatedDate: "2026-03-25T10:31:00Z",
           },
         ],
+        message: null,
+        meta: null,
       },
     },
     {
@@ -238,8 +284,10 @@ const GetPayoutTransaction = () => {
       description: "Payout not found",
       clr: "text-red-400",
       body: {
-        success: false,
+        status: 404,
+        data: null,
         message: "Data does not exist",
+        meta: null,
       },
     },
     {
@@ -247,8 +295,21 @@ const GetPayoutTransaction = () => {
       description: "Server error",
       clr: "text-red-400",
       body: {
-        success: false,
+        status: 400,
+        data: null,
         message: "Server error",
+        meta: null,
+      },
+    },
+    {
+      status: 401,
+      description: "Missing headers, expired timestamp, or invalid signature",
+      clr: "text-red-400",
+      body: {
+        status: 401,
+        data: null,
+        message: "Missing API authentication headers",
+        meta: null,
       },
     },
   ];
@@ -256,9 +317,9 @@ const GetPayoutTransaction = () => {
   return (
     <>
       <p className="mb-3">
-        Fetches complete payout transaction details including vendor
-        information, transaction reference, commission details, and current
-        payout status.
+        Fetches complete payout transaction details including beneficiary
+        information, bank reference, commission breakdown, and current payout
+        status.
       </p>
 
       <div className="flex gap-2 border rounded-lg p-2 justify-between mb-10">
@@ -327,8 +388,12 @@ const GetPayoutTransaction = () => {
         <ul className="list-disc pl-5 mt-2 space-y-1">
           <li>Response returns an array containing the payout record.</li>
           <li>
-            If no record is found, API may return an empty array unless 404 mode
-            is explicitly enabled.
+            The <code>status</code> field is a numeric code. See the status code
+            table in the Initiate Payout section for reference.
+          </li>
+          <li>
+            If no record is found, the API may return an empty array unless 404
+            mode is explicitly enabled.
           </li>
         </ul>
       </div>
