@@ -514,7 +514,7 @@ const headings = [
           <span className="font-semibold">API Security Spec</span>: v1.1
         </li>
         <li>
-          <span className="font-semibold">Last Updated</span>: Jan 2026
+          <span className="font-semibold">Last Updated</span>:March 2026
         </li>
       </ul>
     ),
